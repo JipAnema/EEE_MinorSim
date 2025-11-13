@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sim-project version="14.60" multi-file="no" uid="simpa27e5d82898b4ce0964f302ed9ad1a6b" creation-date="11/13/2025 09:38:10">
+  <meta>
+    <name>EEE DEP model</name>
+    <authors>Jip Anema</authors>
+    <description />
+  </meta>
+  <counters models="1">
+    <entity-names>
+      <counter>
+        <item-type type-id="universal-block" type="Universal Block" />
+        <value>6</value>
+      </counter>
+      <counter>
+        <item-type type-id="drawing-line" type="Line" />
+        <value>1</value>
+      </counter>
+      <counter>
+        <item-type type-id="text" type="Text" />
+        <value>1</value>
+      </counter>
+      <counter>
+        <item-type type-id="class" type="Class" />
+        <value>1</value>
+      </counter>
+      <counter>
+        <item-type stereotype="enumeration" type-id="enumeration" type="Enumeration" />
+        <value>1</value>
+      </counter>
+    </entity-names>
+    <entity-ids>
+      <counter>
+        <item-type type-id="universal-block" type="Universal Block" />
+        <value>12</value>
+      </counter>
+      <counter>
+        <item-type type-id="universal-connector" type="Universal Connector" />
+        <value>14</value>
+      </counter>
+      <counter>
+        <item-type type-id="drawing-line" type="Line" />
+        <value>7</value>
+      </counter>
+      <counter>
+        <item-type type-id="text" type="Text" />
+        <value>10</value>
+      </counter>
+      <counter>
+        <item-type type-id="class" type="Class" />
+        <value>2</value>
+      </counter>
+      <counter>
+        <item-type type-id="property" type="Property" />
+        <value>3</value>
+      </counter>
+      <counter>
+        <item-type type-id="enumeration" type="Enumeration" />
+        <value>2</value>
+      </counter>
+    </entity-ids>
+    <diagrams>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.Diagrams.Other.QuickDiagram</type>
+        <value>1</value>
+      </counter>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.Diagrams.UmlDiagrams.UmlClassDiagram</type>
+        <value>1</value>
+      </counter>
+    </diagrams>
+    <fields>
+      <counter>
+        <type>SoftwareIdeasModeler.Core.DiagramItems.Fields.OperationField</type>
+        <value>8</value>
+      </counter>
+    </fields>
+  </counters>
+  <alias-groups />
+  <management uid="md-002a2485918b4a75929ef1b28816ba76" name="" task-id-sequence="0">
+    <working-schedule uid="ws-975049a3ff894d8ba4471b3844e49b4b" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+    <persons>
+      <person id="">
+        <first-name>Jip</first-name>
+        <last-name>Anema</last-name>
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+        <working-schedule uid="ws-19f696820f524b5f83afb4d24a264bbf" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+      </person>
+      <person id="">
+        <first-name>Jip</first-name>
+        <last-name>Anema</last-name>
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+      </person>
+    </persons>
+    <teams />
+    <sprints />
+    <projects />
+    <modules />
+    <tasks />
+    <to-dos />
+  </management>
+  <glossary id="glsr-fc9830d46ede408196455bd66215bff5" name="" order-index="-1" />
+  <types default="UML">
+    <type-sets>
+      <type-set file="UmlTypes.xml" />
+    </type-sets>
+    <custom-types>
+      <parameters />
+      <types />
+    </custom-types>
+  </types>
+  <items>
+    <item id="b044ce5485524ba6a0086bb9c00b93ec" cid="ELEM001" type="universal-block" name="Grijze energie productie" style-class="Flat White" creation-date="11/13/2025 09:43:34">
+      <style class="Flat White" />
+    </item>
+    <item id="b8a908d13715487f98ac71096ef61c14" cid="ELEM001" type="universal-block" name="Eigen productie" style-class="Flat Green" creation-date="11/13/2025 09:43:34">
+      <style class="Flat Green" />
+    </item>
+    <item id="f87f01ffc2e343458485607d68900d0e" cid="ELEM001" type="universal-block" name="Consumptie" style-class="Flat Yellow" creation-date="11/13/2025 09:43:34">
+      <style class="Flat Yellow" />
+    </item>
+    <item id="9a87b71fceeb47fb807024d4ab0d06f7" cid="ELEM001" type="universal-block" name="Duurzame energie productie" style-class="Flat Green" creation-date="11/13/2025 09:43:34">
+      <style class="Flat Green" />
+    </item>
+  </items>
+  <models>
+    <model id="p11399d17e5ed4792ab210608977b55f9_348386009" name="Model1" namespace="" order-index="1">
+      <meta>
+        <authors>
+          <author> </author>
+        </authors>
+        <description />
+        <creation-date>11/13/2025 09:42:02</creation-date>
+        <change-date>01/01/0001 00:00:00</change-date>
+        <revision-count>0</revision-count>
+        <version />
+      </meta>
+      <abstract-items />
+      <sub-models />
+      <diagram type="quick-diagram" id="p16a54cc1916d44379f803d776b72a49c_310463172" name="Hoogmodel" order-index="1" uid="" name-style="" auto-routed-paths="false" default-line-style="default" view-location="-94,176" zoom="1.2">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>11/13/2025 09:42:02</creation-date>
+          <change-date>11/13/2025 09:49:57</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items>
+          <item id="0d820b54e10448cbb0dcc5aff8c573db" cid="ELEM001" type="universal-block" name="Net" style-class="Flat Cyan" creator="" creation-date="11/13/2025 09:43:34">
+            <style class="Flat Cyan" />
+          </item>
+          <item id="ef7cbdd9340f48a38986384b8410dea6" cid="ELEM004" type="universal-connector" creator="" creation-date="11/13/2025 09:44:40" from="b8a908d13715487f98ac71096ef61c14" to="f87f01ffc2e343458485607d68900d0e">
+            <connector end-cap="filled-triangle" />
+          </item>
+          <item id="58d78dc1e2ea4d11b4079a59d10abdd9" cid="ELEM012" type="universal-connector" creator="" creation-date="11/13/2025 09:49:57">
+            <connector />
+          </item>
+          <item id="83908394eb9c46b6ba1b254652fc67db" cid="ELEM011" type="universal-block" style-class="Flat Light White" creator="" creation-date="11/13/2025 09:48:06">
+            <style class="Flat Light White" />
+          </item>
+          <item id="8a1e6881b83945fa96492c32bd02469f" cid="ELEM003" type="universal-connector" creator="" creation-date="11/13/2025 09:44:29" from="f87f01ffc2e343458485607d68900d0e" to="0d820b54e10448cbb0dcc5aff8c573db">
+            <connector start-cap="filled-triangle" />
+          </item>
+          <item id="5e4837d073514764bcf5498f6fe14145" cid="ELEM007" type="universal-connector" creator="" creation-date="11/13/2025 09:46:07" from="b044ce5485524ba6a0086bb9c00b93ec" to="0d820b54e10448cbb0dcc5aff8c573db">
+            <connector end-cap="filled-triangle" />
+          </item>
+          <item id="9fc278244456433a81463b4ddbc7a8d7" cid="ELEM008" type="universal-connector" creator="" creation-date="11/13/2025 09:46:13" from="9a87b71fceeb47fb807024d4ab0d06f7" to="0d820b54e10448cbb0dcc5aff8c573db">
+            <connector end-cap="filled-triangle" />
+          </item>
+        </abstract-items>
+        <layer id="ccceba4400d3419eb79e4d0e9f3f6dbd" name="Default" visible="true" enabled="true" locked="false">
+          <item id="83908394eb9c46b6ba1b254652fc67db" iid="38d35bdfb28142af8800308ed8de998b" creation-date="11/13/2025 09:48:06" order-index="5" type="entity">
+            <layout ax="278" ay="41" awidth="341" aheight="109" x="228" y="7" width="341" height="109" />
+          </item>
+          <item id="0d820b54e10448cbb0dcc5aff8c573db" iid="4e14dcc17eb64254b46c55db4653c35b" creation-date="11/13/2025 09:43:34" order-index="0" type="entity">
+            <layout ax="398" ay="263" awidth="101" aheight="70" x="398" y="263" width="101" height="70" />
+          </item>
+          <item id="b8a908d13715487f98ac71096ef61c14" iid="cdd55efc270242e3b99e3239e614db7d" creation-date="11/13/2025 09:43:34" order-index="0" type="entity">
+            <layout ax="600" ay="263" awidth="101" aheight="70" x="600" y="263" width="101" height="70" />
+          </item>
+          <item id="f87f01ffc2e343458485607d68900d0e" iid="aa35854624724e4ba937c8216cf1155c" creation-date="11/13/2025 09:43:34" order-index="0" type="entity">
+            <layout ax="499" ay="446" awidth="101" aheight="70" x="499" y="446" width="101" height="70" />
+          </item>
+          <item id="8a1e6881b83945fa96492c32bd02469f" iid="9bca6c5fc84643ffadf9197e4101878d" creation-date="11/13/2025 09:44:29" order-index="1" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="550" y1="446" x2="448" y2="333" start-border-pos="0.1262376308441162" end-border-pos="0.6262376308441162" start-local-pos="51" end-local-pos="50" name-position="0,20" name-width="54">
+              <points>
+                <point x="550" y="446" />
+                <point x="448" y="333" />
+              </points>
+            </layout>
+            <relation from="f87f01ffc2e343458485607d68900d0e" from-iid="aa35854624724e4ba937c8216cf1155c" to="0d820b54e10448cbb0dcc5aff8c573db" to-iid="4e14dcc17eb64254b46c55db4653c35b" />
+          </item>
+          <item id="ef7cbdd9340f48a38986384b8410dea6" iid="77623f3e28664d02a33d7b602302fbfd" creation-date="11/13/2025 09:44:40" order-index="2" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="650" y1="333" x2="550" y2="446" start-border-pos="0.6262376308441162" end-border-pos="0.12623762376237624" start-local-pos="50" end-local-pos="51" name-position="0,20">
+              <points>
+                <point x="650" y="333" />
+                <point x="550" y="446" />
+              </points>
+            </layout>
+            <relation from="b8a908d13715487f98ac71096ef61c14" from-iid="cdd55efc270242e3b99e3239e614db7d" to="f87f01ffc2e343458485607d68900d0e" to-iid="aa35854624724e4ba937c8216cf1155c" />
+          </item>
+          <item id="9a87b71fceeb47fb807024d4ab0d06f7" iid="f122f43c62d34e2eb5d2c0cb0b12371f" creation-date="11/13/2025 09:43:34" order-index="0" type="entity">
+            <layout ax="499" ay="63" awidth="101" aheight="70" x="499" y="63" width="101" height="70" />
+          </item>
+          <item id="b044ce5485524ba6a0086bb9c00b93ec" iid="c7cb1ea4df7b4228bb3489cbd04260a0" creation-date="11/13/2025 09:43:34" order-index="0" type="entity">
+            <layout ax="297" ay="63" awidth="101" aheight="70" x="297" y="63" width="101" height="70" />
+          </item>
+          <item id="5e4837d073514764bcf5498f6fe14145" iid="6b618512d9d546f1994c32136fd731ed" creation-date="11/13/2025 09:46:07" order-index="3" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="348" y1="133" x2="448" y2="263" start-border-pos="0.6237623762376238" end-border-pos="0.12376237660646439" start-local-pos="51" end-local-pos="50" name-position="0,20">
+              <points>
+                <point x="348" y="133" />
+                <point x="448" y="263" />
+              </points>
+            </layout>
+            <relation from="b044ce5485524ba6a0086bb9c00b93ec" from-iid="c7cb1ea4df7b4228bb3489cbd04260a0" to="0d820b54e10448cbb0dcc5aff8c573db" to-iid="4e14dcc17eb64254b46c55db4653c35b" />
+          </item>
+          <item id="9fc278244456433a81463b4ddbc7a8d7" iid="baff1fb9a74c432d83a223c1bdaf0f3e" creation-date="11/13/2025 09:46:13" order-index="4" type="relation">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="550" y1="133" x2="448" y2="263" start-border-pos="0.6237623762376238" end-border-pos="0.12376237623762376" start-local-pos="51" end-local-pos="50" name-position="0,20">
+              <points>
+                <point x="550" y="133" />
+                <point x="448" y="263" />
+              </points>
+            </layout>
+            <relation from="9a87b71fceeb47fb807024d4ab0d06f7" from-iid="f122f43c62d34e2eb5d2c0cb0b12371f" to="0d820b54e10448cbb0dcc5aff8c573db" to-iid="4e14dcc17eb64254b46c55db4653c35b" />
+          </item>
+          <item id="58d78dc1e2ea4d11b4079a59d10abdd9" iid="49a0006b759f4257b3433760161e642a" creation-date="11/13/2025 09:49:57" order-index="6" type="relation">
+            <layout line-style="oblique" lock-to-fields="false" auto-path="" x1="720" y1="661" x2="839" y2="666" start-border-pos="-1" end-border-pos="-1" name-position="0,20">
+              <points>
+                <point x="720" y="661" />
+                <point x="839" y="666" />
+              </points>
+            </layout>
+            <relation />
+          </item>
+        </layer>
+      </diagram>
+      <diagram type="uml-class" id="p9169ce7d390a49e6ace4350b68ec0ea0_699669727" name="ClassDiagram1" order-index="2" overview-order-index="0" uid="" name-style="" auto-routed-paths="false" default-line-style="default" view-location="50,7" zoom="1.4">
+        <style>
+          <background-color index="1" color="#FFFFFFFF" />
+          <background-color index="2" color="#FFFFFFFF" />
+          <background-type type="solid" />
+        </style>
+        <meta>
+          <authors>
+            <author> </author>
+          </authors>
+          <description />
+          <creation-date>11/13/2025 10:18:15</creation-date>
+          <change-date>11/13/2025 11:09:42</change-date>
+          <revision-count>0</revision-count>
+          <version />
+        </meta>
+        <abstract-items>
+          <item id="f067938ff53e40859fca8f721b07fc53" cid="C001" type="class" name="FermentatieWarmte" creator="" creation-date="11/13/2025 10:18:19" visibility="undefined">
+            <operations>
+              <operation id="of86e48b898a0450998ed69b31b374acc296" cid="OP001" name="FermentatieWarmte" creation-date="11/13/2025 10:18:38" type="" type-id="" visibility="public">
+                <parameters>
+                  <parameter id="p65768622231041988b1adcdbcbb2771e" name="massa" type="Real" type-id="Uml.Real" creation-date="11/13/2025 10:19:58" />
+                  <parameter id="pceee50e9ac9f4e1b93a0ffa370d2ac26" name="soortelijkewarmte" type="Real" type-id="Uml.Real" creation-date="11/13/2025 10:19:58" />
+                </parameters>
+                <stereotypes>
+                  <stereotype>create</stereotype>
+                </stereotypes>
+              </operation>
+              <operation id="o3675039075b4409b974a6213f22eab26591" cid="OP003" name="setNewTemp" creation-date="11/13/2025 10:20:19" type="" type-id="" visibility="public">
+                <parameters>
+                  <parameter id="p001a070c5f674cada937bb55bcdc271a" name="Temperatuur" type="Real" type-id="Uml.Real" creation-date="11/13/2025 10:32:02" />
+                </parameters>
+              </operation>
+              <operation id="of028dd8ac6354439832601984151d61e312" cid="OP004" name="getPowerConsumption" creation-date="11/13/2025 10:32:07" type="Real" type-id="Uml.Real" visibility="public" />
+              <operation id="oa5d9711e59c34562bc7ae7f533ac7d7a913" cid="OP005" name="getTemperatuur" creation-date="11/13/2025 11:06:24" type="Real" type-id="Uml.Real" visibility="public" />
+              <operation id="o5621bb4f9c1c4fbfb199513ae1a58cf6614" cid="OP007" name="getStoredEnergy" creation-date="11/13/2025 11:09:04" type="Real" type-id="Uml.Real" visibility="public" />
+            </operations>
+          </item>
+        </abstract-items>
+        <layer id="7b7de35972cd4acba7ac481df2ebd7a5" name="Default" visible="true" enabled="true" locked="false">
+          <item id="f067938ff53e40859fca8f721b07fc53" iid="fd83b7cda7e64822a88f15793cccac89" show-fields="true" creation-date="11/13/2025 10:18:19" order-index="0" type="entity">
+            <layout ax="194" ay="140" awidth="424" aheight="135" x="194" y="140" width="424" height="135" />
+            <classifier />
+            <class />
+          </item>
+        </layer>
+      </diagram>
+    </model>
+  </models>
+</sim-project>
