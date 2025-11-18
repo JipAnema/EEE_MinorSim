@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<sim-project version="14.60" multi-file="no" uid="simpa27e5d82898b4ce0964f302ed9ad1a6b" creation-date="11/13/2025 09:38:10">
+<sim-project version="14.82" multi-file="no" uid="simpa27e5d82898b4ce0964f302ed9ad1a6b" creation-date="11/13/2025 09:38:10">
   <meta>
     <name>EEE DEP model</name>
     <authors>Jip Anema</authors>
@@ -21,7 +21,7 @@
       </counter>
       <counter>
         <item-type type-id="class" type="Class" />
-        <value>1</value>
+        <value>2</value>
       </counter>
       <counter>
         <item-type stereotype="enumeration" type-id="enumeration" type="Enumeration" />
@@ -47,7 +47,7 @@
       </counter>
       <counter>
         <item-type type-id="class" type="Class" />
-        <value>2</value>
+        <value>3</value>
       </counter>
       <counter>
         <item-type type-id="property" type="Property" />
@@ -71,7 +71,7 @@
     <fields>
       <counter>
         <type>SoftwareIdeasModeler.Core.DiagramItems.Fields.OperationField</type>
-        <value>8</value>
+        <value>10</value>
       </counter>
     </fields>
   </counters>
@@ -88,6 +88,16 @@
         <description />
         <color>#00000000</color>
         <working-schedule uid="ws-19f696820f524b5f83afb4d24a264bbf" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+      </person>
+      <person id="">
+        <first-name>Jip</first-name>
+        <last-name>Anema</last-name>
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+        <working-schedule uid="ws-8eea0dee777e4b2d983029b3855cdef1" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
       </person>
       <person id="">
         <first-name>Jip</first-name>
@@ -123,11 +133,11 @@
     <item id="b8a908d13715487f98ac71096ef61c14" cid="ELEM001" type="universal-block" name="Eigen productie" style-class="Flat Green" creation-date="11/13/2025 09:43:34">
       <style class="Flat Green" />
     </item>
-    <item id="f87f01ffc2e343458485607d68900d0e" cid="ELEM001" type="universal-block" name="Consumptie" style-class="Flat Yellow" creation-date="11/13/2025 09:43:34">
-      <style class="Flat Yellow" />
-    </item>
     <item id="9a87b71fceeb47fb807024d4ab0d06f7" cid="ELEM001" type="universal-block" name="Duurzame energie productie" style-class="Flat Green" creation-date="11/13/2025 09:43:34">
       <style class="Flat Green" />
+    </item>
+    <item id="f87f01ffc2e343458485607d68900d0e" cid="ELEM001" type="universal-block" name="Consumptie" style-class="Flat Yellow" creation-date="11/13/2025 09:43:34">
+      <style class="Flat Yellow" />
     </item>
   </items>
   <models>
@@ -173,28 +183,28 @@
           <item id="83908394eb9c46b6ba1b254652fc67db" cid="ELEM011" type="universal-block" style-class="Flat Light White" creator="" creation-date="11/13/2025 09:48:06">
             <style class="Flat Light White" />
           </item>
-          <item id="8a1e6881b83945fa96492c32bd02469f" cid="ELEM003" type="universal-connector" creator="" creation-date="11/13/2025 09:44:29" from="f87f01ffc2e343458485607d68900d0e" to="0d820b54e10448cbb0dcc5aff8c573db">
-            <connector start-cap="filled-triangle" />
+          <item id="9fc278244456433a81463b4ddbc7a8d7" cid="ELEM008" type="universal-connector" creator="" creation-date="11/13/2025 09:46:13" from="9a87b71fceeb47fb807024d4ab0d06f7" to="0d820b54e10448cbb0dcc5aff8c573db">
+            <connector end-cap="filled-triangle" />
           </item>
           <item id="5e4837d073514764bcf5498f6fe14145" cid="ELEM007" type="universal-connector" creator="" creation-date="11/13/2025 09:46:07" from="b044ce5485524ba6a0086bb9c00b93ec" to="0d820b54e10448cbb0dcc5aff8c573db">
             <connector end-cap="filled-triangle" />
           </item>
-          <item id="9fc278244456433a81463b4ddbc7a8d7" cid="ELEM008" type="universal-connector" creator="" creation-date="11/13/2025 09:46:13" from="9a87b71fceeb47fb807024d4ab0d06f7" to="0d820b54e10448cbb0dcc5aff8c573db">
-            <connector end-cap="filled-triangle" />
+          <item id="8a1e6881b83945fa96492c32bd02469f" cid="ELEM003" type="universal-connector" creator="" creation-date="11/13/2025 09:44:29" from="f87f01ffc2e343458485607d68900d0e" to="0d820b54e10448cbb0dcc5aff8c573db">
+            <connector start-cap="filled-triangle" />
           </item>
         </abstract-items>
         <layer id="ccceba4400d3419eb79e4d0e9f3f6dbd" name="Default" visible="true" enabled="true" locked="false">
           <item id="83908394eb9c46b6ba1b254652fc67db" iid="38d35bdfb28142af8800308ed8de998b" creation-date="11/13/2025 09:48:06" order-index="5" type="entity">
-            <layout ax="278" ay="41" awidth="341" aheight="109" x="228" y="7" width="341" height="109" />
+            <layout ax="278" ay="41" awidth="341" aheight="109" x="228" y="7" width="341" height="109" expanded="0,0,0,0" collapsed="0,0,0,0" />
           </item>
           <item id="0d820b54e10448cbb0dcc5aff8c573db" iid="4e14dcc17eb64254b46c55db4653c35b" creation-date="11/13/2025 09:43:34" order-index="0" type="entity">
-            <layout ax="398" ay="263" awidth="101" aheight="70" x="398" y="263" width="101" height="70" />
+            <layout ax="398" ay="263" awidth="101" aheight="70" x="398" y="263" width="101" height="70" expanded="0,0,0,0" collapsed="0,0,0,0" />
           </item>
           <item id="b8a908d13715487f98ac71096ef61c14" iid="cdd55efc270242e3b99e3239e614db7d" creation-date="11/13/2025 09:43:34" order-index="0" type="entity">
-            <layout ax="600" ay="263" awidth="101" aheight="70" x="600" y="263" width="101" height="70" />
+            <layout ax="600" ay="263" awidth="101" aheight="70" x="600" y="263" width="101" height="70" expanded="0,0,0,0" collapsed="0,0,0,0" />
           </item>
           <item id="f87f01ffc2e343458485607d68900d0e" iid="aa35854624724e4ba937c8216cf1155c" creation-date="11/13/2025 09:43:34" order-index="0" type="entity">
-            <layout ax="499" ay="446" awidth="101" aheight="70" x="499" y="446" width="101" height="70" />
+            <layout ax="499" ay="446" awidth="101" aheight="70" x="499" y="446" width="101" height="70" expanded="0,0,0,0" collapsed="0,0,0,0" />
           </item>
           <item id="8a1e6881b83945fa96492c32bd02469f" iid="9bca6c5fc84643ffadf9197e4101878d" creation-date="11/13/2025 09:44:29" order-index="1" type="relation">
             <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="550" y1="446" x2="448" y2="333" start-border-pos="0.1262376308441162" end-border-pos="0.6262376308441162" start-local-pos="51" end-local-pos="50" name-position="0,20" name-width="54">
@@ -215,10 +225,10 @@
             <relation from="b8a908d13715487f98ac71096ef61c14" from-iid="cdd55efc270242e3b99e3239e614db7d" to="f87f01ffc2e343458485607d68900d0e" to-iid="aa35854624724e4ba937c8216cf1155c" />
           </item>
           <item id="9a87b71fceeb47fb807024d4ab0d06f7" iid="f122f43c62d34e2eb5d2c0cb0b12371f" creation-date="11/13/2025 09:43:34" order-index="0" type="entity">
-            <layout ax="499" ay="63" awidth="101" aheight="70" x="499" y="63" width="101" height="70" />
+            <layout ax="499" ay="63" awidth="101" aheight="70" x="499" y="63" width="101" height="70" expanded="0,0,0,0" collapsed="0,0,0,0" />
           </item>
           <item id="b044ce5485524ba6a0086bb9c00b93ec" iid="c7cb1ea4df7b4228bb3489cbd04260a0" creation-date="11/13/2025 09:43:34" order-index="0" type="entity">
-            <layout ax="297" ay="63" awidth="101" aheight="70" x="297" y="63" width="101" height="70" />
+            <layout ax="297" ay="63" awidth="101" aheight="70" x="297" y="63" width="101" height="70" expanded="0,0,0,0" collapsed="0,0,0,0" />
           </item>
           <item id="5e4837d073514764bcf5498f6fe14145" iid="6b618512d9d546f1994c32136fd731ed" creation-date="11/13/2025 09:46:07" order-index="3" type="relation">
             <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="348" y1="133" x2="448" y2="263" start-border-pos="0.6237623762376238" end-border-pos="0.12376237660646439" start-local-pos="51" end-local-pos="50" name-position="0,20">
@@ -261,7 +271,7 @@
           </authors>
           <description />
           <creation-date>11/13/2025 10:18:15</creation-date>
-          <change-date>11/13/2025 11:09:42</change-date>
+          <change-date>11/18/2025 10:07:27</change-date>
           <revision-count>0</revision-count>
           <version />
         </meta>
@@ -287,10 +297,28 @@
               <operation id="o5621bb4f9c1c4fbfb199513ae1a58cf6614" cid="OP007" name="getStoredEnergy" creation-date="11/13/2025 11:09:04" type="Real" type-id="Uml.Real" visibility="public" />
             </operations>
           </item>
+          <item id="f860bda6d071492d9e03be7455809350" cid="C002" type="class" name="SymPowerUsage" creator="" creation-date="11/18/2025 10:07:27">
+            <operations>
+              <operation id="o39207fd3a43d447fa5c7c9e78f5cd028126" cid="OP008" name="SymPowerUsage" creation-date="11/18/2025 10:07:51" type="" type-id="" visibility="public">
+                <parameters>
+                  <parameter id="p2350847266b541799ba048b68a7fd4f3" name="path" type="String" type-id="Uml.String" creation-date="11/18/2025 10:08:31" />
+                </parameters>
+                <stereotypes>
+                  <stereotype>create</stereotype>
+                </stereotypes>
+              </operation>
+              <operation id="o7fef308352a54a2e86a8788dbda6cc8c394" cid="OP009" name="getPowerConsumption" creation-date="11/18/2025 10:08:37" type="Real" type-id="Uml.Real" visibility="public" />
+            </operations>
+          </item>
         </abstract-items>
         <layer id="7b7de35972cd4acba7ac481df2ebd7a5" name="Default" visible="true" enabled="true" locked="false">
           <item id="f067938ff53e40859fca8f721b07fc53" iid="fd83b7cda7e64822a88f15793cccac89" show-fields="true" creation-date="11/13/2025 10:18:19" order-index="0" type="entity">
             <layout ax="194" ay="140" awidth="424" aheight="135" x="194" y="140" width="424" height="135" />
+            <classifier />
+            <class />
+          </item>
+          <item id="f860bda6d071492d9e03be7455809350" iid="cc84e65221bb4dbdb1f27d5cb03cb351" show-fields="true" creation-date="11/18/2025 10:07:27" order-index="1" type="entity">
+            <layout ax="638" ay="141" awidth="262" aheight="78" x="638" y="141" width="262" height="78" />
             <classifier />
             <class />
           </item>

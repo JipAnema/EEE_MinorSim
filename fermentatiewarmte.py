@@ -7,29 +7,31 @@
 # Presumptions: 
 #   - No active cooling system is implemented; cooling occurs naturally.
 #   - Heat loss is calculated based on a simple linear model.
-#   - The class assumes a linear relationship between energy input and temperature change.       
+#   - The class assumes a linear relationship between energy input and temperature change.     
+# Written by: Jip  
 
 class FermentatieWarmte:
-  def __init__(self, massa_kg, soortelijke_warmte_jc_kg, maximaal_vermogen_kw, initial_temp_c, warmtegeleiding_coeff, oppervlakte_m2, dikte_m, omgeving_temp_c):
-    self.massa_kg = massa_kg
+  def __init__(self, mass_kg, soortelijke_warmte_jc_kg, max_power_kw, initial_temp_c, warmtegeleiding_coeff, area_m2, thickness_m, suround_temp_c):
+    self.mass_kg = mass_kg
     self.soortelijke_warmte_jc_kg = soortelijke_warmte_jc_kg
-    self.maximaal_vermogen_kw = maximaal_vermogen_kw
+    self.max_power_kw = max_power_kw
     self.temp = initial_temp_c
-    self.stored_energy = massa_kg * soortelijke_warmte_jc_kg * self.__calc_celciustokelvin(initial_temp_c)
+    self.stored_energy = mass_kg * soortelijke_warmte_jc_kg * self.__calc_celciustokelvin(initial_temp_c)
 
-    self.warmtecofficient = warmtegeleiding_coeff
-    self.oppervlakte_m2 = oppervlakte_m2
-    self.dikte_m = dikte_m
-    self.omgeving_temp_c = omgeving_temp_c
+    self.heatcofficient = warmtegeleiding_coeff
+    self.area_m2 = area_m2
+    self.thickness_m = thickness_m
+    self.suround_temp_c = suround_temp_c
+
 
   # Calculate the energy needed to reach a new temperature
   def __calc_energieneeded(self, nieuw_temp_c):
-    Q = self.massa_kg * self.soortelijke_warmte_jc_kg * (nieuw_temp_c - self.temp)
+    Q = self.mass_kg * self.soortelijke_warmte_jc_kg * (nieuw_temp_c - self.temp)
     return Q
   
   # Calculate lossed energy by heat transfer
   def __calc_heatlossenergy(self):
-    return (self.warmtecofficient * self.oppervlakte_m2 * (self.temp - self.omgeving_temp_c) / self.dikte_m)
+    return (self.heatcofficient * self.area_m2 * (self.temp - self.suround_temp_c) / self.thickness_m)
   
   # Convert Celsius to Kelvin
   def __calc_celciustokelvin(self, temp_c):
@@ -56,7 +58,7 @@ class FermentatieWarmte:
       # More energy required to reach target temperature
       energie_needed_j = self.__calc_energieneeded(self.targettempp)
       # Max power available in Joules per second
-      max_power_j_per_s = self.maximaal_vermogen_kw * 1000
+      max_power_j_per_s = self.max_power_kw * 1000
       # Remove heat loss from available power
       available_power_j_per_s = max_power_j_per_s - energie_loss_p
       # Add energy to stored energy
@@ -64,12 +66,12 @@ class FermentatieWarmte:
         # Heating up
         energie_to_add = min(energie_needed_j, available_power_j_per_s)
         self.stored_energy += energie_to_add
-        self.temp += energie_to_add / (self.massa_kg * self.soortelijke_warmte_jc_kg)
+        self.temp += energie_to_add / (self.mass_kg * self.soortelijke_warmte_jc_kg)
         return (energie_to_add + energie_loss_p) / 1000  # in kW
       else:
         # Cooling down (No active cooling, so just let it cool naturally)
         self.stored_energy -= energie_loss_p
-        self.temp -= energie_loss_p / (self.massa_kg * self.soortelijke_warmte_jc_kg)
+        self.temp -= energie_loss_p / (self.mass_kg * self.soortelijke_warmte_jc_kg)
         return 0
     else:
       # Maintain current temperature, only heat loss needs to be compesated
