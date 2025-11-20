@@ -10,11 +10,12 @@ import calcEnergyPrice as price
 import auxfunctions as aux
 import matplotlib.pyplot as plt
 from collections import defaultdict
+import csv
 
 # ================================================================================== #
 ' Simulation settings  '
 
-timesteps = aux.timeToSecond(3,1,30,0)  # Time to simulate (day,hour,minute,second)
+timesteps = aux.timeToSecond(0,12,0,0)  # Time to simulate (day,hour,minute,second)
 setpoint = 40.0  # Target temperature in Celsius
 
 # ================================================================================== #
@@ -26,8 +27,8 @@ costCalculator = price.calcEnergyPrice('costOfEnergy.csv')
 
 # ================================================================================== #
 ' Start stats '
-# Changing the var 'startStat' will enable/disable end statistics.
-startStat = True
+# Changing the var 'startStat' will enable/disable start statistics.
+startStat = False
 
 if startStat:
   print("Initial Temperature:", fermentatie1.get_temp(), "°C")
@@ -49,10 +50,14 @@ for t in range(timesteps):
 
   # Power Sim 1
   powerBuffer = power1.getPowerConsumption()
+  if not aux.isValueGood(powerBuffer,"Power sim 1"):
+    exit()
   powerUsage['Power1'].append(powerBuffer)
   totalPower += powerBuffer
 
   costCalculator.PowerUsage(totalPower)
+  powerUsage['CurrentPcost'].append(costCalculator.getPowerCost(totalPower) / 3600)
+  powerUsage['time'].append(secondsPassed)
   # Keep last (End of sim)
   secondsPassed += 1
 
@@ -66,7 +71,26 @@ if endStat:
   #print("Final Temperature:", fermentatie1.get_temp(), "°C")
   print("Total Power Consumption:", costCalculator.getTotalPower(), "kWh")
   print("Total Power Cost:", costCalculator.getTotalCost(), "Euro")
+
+# ================================================================================== #
+' Write outputs to CSV '
+# Changing the var 'writeCSV' will enable/disable writing data to a csv file. 
+writeCSV = True
+csvPath = 'SimulationOutput.csv'
+
+if writeCSV:
+  # Compact all the data (and structure to colums)
+  data = zip(powerUsage['time'],powerUsage['CurrentPcost'],powerUsage['Ferm1'],powerUsage['Power1'])
+
+  # Write data to csv
+  with open(csvPath,'w', newline= '') as simcsv:
+    fieldnames = ['time','Current Power Cost','Fermentation 1','Power sim 1']
+    writer = csv.writer(simcsv,delimiter=';') 
+    writer.writerow(fieldnames)
+    writer.writerows(data)
+    simcsv.close()
   
+
 # ================================================================================== #
 ' Plotting '
 # Changing the var 'plot' will enable/disable plotting.

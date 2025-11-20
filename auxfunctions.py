@@ -5,3 +5,9 @@
 
 def timeToSecond(day,hour,minute,second):
   return (day * 86400) + (hour * 3600) + (minute * 60) + second
+
+def isValueGood(value, callName):
+  if value < 0:
+    print("Value not ok. Value: ", value, ". Friendly name: ", callName)
+    return False
+  return True

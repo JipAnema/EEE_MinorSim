@@ -30,7 +30,15 @@ class calcEnergyPrice:
 
     # Return current price based on time from PowerUsage()
     def getCurrentPrice(self):
+        # Check if index is in range
+        if self.__indexInRange() == False:
+            return -1
+        
         return float(self.colums['price(euro)'][self.index].replace(",", "."))
+    
+    # Return cost of current power based on time
+    def getPowerCost(self, currentPower):
+        return self.getCurrentPrice() * currentPower
     
     # Increment time unit, calculate total power and cost
     def PowerUsage(self, currentPower):
@@ -38,18 +46,10 @@ class calcEnergyPrice:
         if self.timeSeconds % self.accuracy == 0:
             self.index += 1
         self.timeSeconds += 1
-
-        # Check for out of bounds index
-        if self.index > len(self.colums['price(euro)']) - 1:
-            return -1
     
         self.totalCost += self.getPowerCost(currentPower / 3600 )
         self.totalPower += (currentPower / 3600)
 
-    # Return price of current power based on time
-    def getPowerCost(self, currentPower):
-        return self.getCurrentPrice() * currentPower
-    
     # Return total power
     def getTotalPower(self):
         return float(self.totalPower)
@@ -57,3 +57,9 @@ class calcEnergyPrice:
     # Return total cost
     def getTotalCost(self):
         return "%.2f" % round(self.totalCost,2)
+    
+    def __indexInRange(self):
+        # Check for out of bounds index
+        if self.index > len(self.colums['price(euro)']) - 1:
+            return False
+        return True
