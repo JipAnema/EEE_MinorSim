@@ -4,7 +4,7 @@
 # Written by: Jip
 
 # Imports
-import fermentatiewarmte as fw
+import symFermentation as fw
 import sympowerusage as p
 import calcEnergyPrice as price
 import auxfunctions as aux
@@ -22,7 +22,7 @@ setpoint = 40.0  # Target temperature in Celsius
 ' Simulation instances '
 
 power1 = p.symPowerUsage('test.csv')
-fermentatie1 = fw.FermentatieWarmte(100000, 4186, 200, 20.0, 0.1, 20, 0.05, 10.0 )  # 1000 kg, water, 200 kW heater, initial temp 20C, warmtegeleiding_coeff 0.1, oppervlakte 20m2, dikte 0.05m, omgeving temp 10C
+fermentatie1 = fw.symFermentation(100000, 4186, 200, 20.0, 0.1, 20, 0.05, 10.0 )  # 1000 kg, water, 200 kW heater, initial temp 20C, warmtegeleiding_coeff 0.1, oppervlakte 20m2, dikte 0.05m, omgeving temp 10C
 costCalculator = price.calcEnergyPrice('costOfEnergy.csv')
 
 # ================================================================================== #
@@ -40,7 +40,7 @@ secondsPassed = 0
 powerUsage = defaultdict(list)
 powerBuffer = 0
 
-fermentatie1.set_newtemperature(setpoint)  # Set target temperature to 25C
+fermentatie1.setNewTemperature(setpoint)  # Set target temperature to 25C
 for t in range(timesteps):
   totalPower = 0
   # Fermentatie 1
