@@ -34,7 +34,7 @@ costCalculator = price.calcEnergyPrice('costOfEnergy.csv')
 startStat = False
 
 if startStat:
-  print("Initial Temperature:", fermentatie1.get_temp(), "°C")
+  print("Initial Temperature:", fermentatie1.getTemperature(), "°C")
   print("Transformer Rating:", transformerRating, "kVA")
 
 # ================================================================================== #

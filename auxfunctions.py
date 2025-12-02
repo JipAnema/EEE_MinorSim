@@ -11,3 +11,11 @@ def isValueGood(value, callName):
     print("Value not ok. Value: ", value, ". Friendly name: ", callName)
     return False
   return True
+
+def limit(lowerlimit,value,upperlimit):
+  if value < lowerlimit:
+    return lowerlimit
+  elif value > upperlimit:
+    return upperlimit
+  else:
+    return value
