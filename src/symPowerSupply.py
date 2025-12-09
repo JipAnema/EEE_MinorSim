@@ -53,6 +53,25 @@ class symPowerSupply:
         if production == self.previusProduction:
             return self.previusScaledPower
         
+        upperFind = len(self.factor)
+        lowerFind = 0
+        length = len(self.factor) / 2
+        count = 0
+        tryindex = int(upperFind / 2)
+
+        while upperFind - lowerFind != 1:
+            count += 1
+            tryval = self.factor[tryindex][0]
+            if production > tryval:
+                lowerFind = tryindex
+                tryindex += int(length / ( 2 * count))
+            elif production < tryval:
+                upperFind = tryindex
+                tryindex -= int(length / ( 2 * count))
+            else:
+                upperFind = tryindex
+                lowerFind = tryindex - 1
+
         # Find index for interpolation
         for i in range(len(self.factor)):
             if production < self.factor[i][0]:
