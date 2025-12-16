@@ -1,5 +1,5 @@
 # Name: sympowersupply.py
-# Description: Class to read a csv file that has a production profile of an unspecified unit, and uses a linear factor to return power production.
+# Description: Class to read a csv file that has a production profile of an unspecified unit, and uses linear interpolation to return power production.
 # Usage:  Import the class and create an instance with the csv file path, upperlimit, lowerlimit, and factor as parameters. 
 #         The class will read the power accuracy. Calling getPowerProduction() will return
 #         the current power consumption in kW based on the time (second). Calling 
@@ -11,7 +11,7 @@ import bisect
 from collections import defaultdict
 
 class symPowerSupply:
-    def __init__(self, filepath, upperLimit, lowerLimit, factor, count):
+    def __init__(self, filepath, upperLimit, lowerLimit, factor, count, enableInterpolation):
         self.filepath = filepath
         self.timeSeconds = 0
         self.index = 0
@@ -21,6 +21,7 @@ class symPowerSupply:
         self.count = count
         self.previusProduction = 0
         self.previusScaledPower = 0
+        self.enableInterpolation = enableInterpolation
         self.colums = defaultdict(list)
 
         # Open and write colums to list
@@ -33,6 +34,7 @@ class symPowerSupply:
         # Read power accuracy (first input is used)
         self.accuracy = int(self.colums['accuracy(sec)'][0])
 
+    # Return scaled and interpolated power production
     def getPowerProduction(self):
         # Check time step
         self.timeSeconds += 1
@@ -42,47 +44,66 @@ class symPowerSupply:
         # Check for out of bounds index
         if self.index > len(self.colums['production']) - 1:
             return -1
-        
+
         production = float(self.colums['production'][self.index].replace(",", "."))
+
+        if self.enableInterpolation:
+            production = self.__interpolateProduction(production)
 
         # Return correct power usage based on time
         return self.__limit(self.lowerLimit, self.__getScaledPower(production), self.upperLimit)
     
+    # Interpolate 
+    def __interpolateProduction(self, production):
+        y0 = production
+        x0 = self.accuracy * self.index
+        
+        if self.index >= len(self.colums['production']) - 1:
+            return production
+            index = len(self.colums['production']) - 1
+        else:
+            index = self.index + 1
+
+        y1 = float(self.colums['production'][index].replace(",", "."))
+        x1 = self.accuracy * (index)
+        return (y1 - y0) / (x1 - x0) * (self.timeSeconds % (self.accuracy)) + production
+
+    # 
     def __getScaledPower(self,production):
         # Check for previus value
+        # TODO: Rework after lineair interpolation?
         if production == self.previusProduction:
             return self.previusScaledPower
         
-        upperFind = len(self.factor)
+        # O(log n) Binary search
+        length = len(self.factor)
+        upperFind = length
         lowerFind = 0
-        length = len(self.factor) / 2
-        count = 0
         tryindex = int(upperFind / 2)
 
-        while upperFind - lowerFind != 1:
-            count += 1
-            tryval = self.factor[tryindex][0]
-            if production > tryval:
-                lowerFind = tryindex
-                tryindex += int(length / ( 2 * count))
-            elif production < tryval:
-                upperFind = tryindex
-                tryindex -= int(length / ( 2 * count))
-            else:
-                upperFind = tryindex
-                lowerFind = tryindex - 1
-
-        # Find index for interpolation
-        for i in range(len(self.factor)):
-            if production < self.factor[i][0]:
-                index = i
-                break
-
+        if production >= self.factor[upperFind - 1][0]:
+            upperFind -= 1
+            lowerFind = upperFind - 1
+        elif production <= self.factor[lowerFind][0]:
+            upperFind = 1
+        else:
+            while upperFind - lowerFind != 1:
+                tryval = self.factor[tryindex][0]
+                if production > tryval:
+                    lowerFind = tryindex
+                    tryindex += int((upperFind - lowerFind) / 2)
+                elif production < tryval:
+                    upperFind = tryindex
+                    tryindex -= int((upperFind - lowerFind) / 2)
+                else:
+                    upperFind = tryindex + 1
+                    lowerFind = tryindex
+        
         # Linear interpolation
-        x1 = float(self.factor[index][0])
-        x0 = float(self.factor[index - 1][0])
-        y1 = float(self.factor[index][1])
-        y0 = float(self.factor[index - 1][1])
+        x1 = float(self.factor[upperFind][0])
+        x0 = float(self.factor[lowerFind][0])
+        y1 = float(self.factor[upperFind][1])
+        y0 = float(self.factor[lowerFind][1])
 
         scaledPower = ((y1 - y0) / (x1 - x0) * (production - x0) + y0) * self.count
 
@@ -92,6 +113,7 @@ class symPowerSupply:
 
         return scaledPower 
 
+    # Limit value
     def __limit(self,lowerlimit,value,upperlimit):
         if value <= lowerlimit:
             return lowerlimit

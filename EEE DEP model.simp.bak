@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<sim-project version="14.60" multi-file="no" uid="simpa27e5d82898b4ce0964f302ed9ad1a6b" creation-date="11/13/2025 09:38:10">
+<sim-project version="14.82" multi-file="no" uid="simpa27e5d82898b4ce0964f302ed9ad1a6b" creation-date="11/13/2025 09:38:10">
   <meta>
     <name>EEE DEP model</name>
     <authors>Jip Anema</authors>
@@ -17,7 +17,7 @@
       </counter>
       <counter>
         <item-type type-id="text" type="Text" />
-        <value>3</value>
+        <value>5</value>
       </counter>
       <counter>
         <item-type type-id="class" type="Class" />
@@ -83,7 +83,7 @@
       </counter>
       <counter>
         <item-type type-id="text" type="Text" />
-        <value>39</value>
+        <value>41</value>
       </counter>
       <counter>
         <item-type type-id="class" type="Class" />
@@ -259,6 +259,16 @@
         <phone-number />
         <description />
         <color>#00000000</color>
+        <working-schedule uid="ws-d678bcbf589846948155f08d0840fbf7" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+      </person>
+      <person id="">
+        <first-name>Jip</first-name>
+        <last-name>Anema</last-name>
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
       </person>
     </persons>
     <teams />
@@ -295,8 +305,14 @@
       <style class="Blue White Bold" />
     </item>
     <item id="1b9b67868a4749f8bd743875aa17df7b" cid="ELEM002" type="activity-region" name="test" creator="" creation-date="11/20/2025 14:56:03" />
+    <item id="5ffacd85148549c1a17b8ef32f2741cf" cid="ELEM039" type="text" name="Text4" style-class="Transparent" creation-date="12/16/2025 11:39:57">
+      <style class="Transparent" />
+      <drawing-text>
+        <text>6 MVA</text>
+      </drawing-text>
+    </item>
     <item id="46406c5f6b9345119713085bf888b295" cid="ELEM004" type="drawing-shape" name="SimpleShape1" creation-date="11/27/2025 14:12:03">
-      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF" accuracy="0.9">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF" accuracy="0.9">
         <text-style type="name" color="#555555" font="Segoe UI;11.25;B" />
         <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
         <text-style type="text" color="#555555" font="Segoe UI;9.75;" horizontal-alignment="left" />
@@ -321,11 +337,22 @@
       <drawing />
       <drawing-shape type="Ellipse" />
     </item>
-    <item id="8fde8d848ab042fd9aec2d3b08f5ffff" cid="ELEM001" type="universal-block" name="Wind" style-class="Flat Yellow" creation-date="11/13/2025 09:43:34">
+    <item id="8fde8d848ab042fd9aec2d3b08f5ffff" cid="ELEM001" type="universal-block" name="Wind 6 MVA" style-class="Flat Yellow" creation-date="11/13/2025 09:43:34">
+      <style class="Flat Yellow" />
+    </item>
+    <item id="710000c0ccd74b6797ee8fd70d57758d" cid="OBJ003" type="object" name="symPowerConsumption" style-class="Flat Green" creation-date="11/20/2025 15:05:16" visibility="undefined">
+      <style class="Flat Green" />
+      <object classifier-name="">
+        <attributes>
+          <attribute name="getPowerConsumption" value="SumPower" />
+        </attributes>
+      </object>
+    </item>
+    <item id="f87f01ffc2e343458485607d68900d0e" cid="ELEM001" type="universal-block" name="Overig verbruik" style-class="Flat Yellow" creation-date="11/13/2025 09:43:34">
       <style class="Flat Yellow" />
     </item>
     <item id="9a87b71fceeb47fb807024d4ab0d06f7" cid="ELEM001" type="universal-block" name="Duurzame energie productie" creation-date="11/13/2025 09:43:34">
-      <style style-name="Flat Yellow" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#322A2A2A" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF" accuracy="0.9">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#322A2A2A" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF" accuracy="0.9">
         <text-style type="name" color="#2A2A2A" font="Segoe UI;11.25;B" />
         <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
         <text-style type="text" color="#2A2A2A" font="Segoe UI;9.75;" horizontal-alignment="left" />
@@ -348,19 +375,8 @@
         </alternate-styles>
       </style>
     </item>
-    <item id="f87f01ffc2e343458485607d68900d0e" cid="ELEM001" type="universal-block" name="Overig verbruik" style-class="Flat Yellow" creation-date="11/13/2025 09:43:34">
-      <style class="Flat Yellow" />
-    </item>
-    <item id="710000c0ccd74b6797ee8fd70d57758d" cid="OBJ003" type="object" name="symPowerConsumption" style-class="Flat Green" creation-date="11/20/2025 15:05:16" visibility="undefined">
-      <style class="Flat Green" />
-      <object classifier-name="">
-        <attributes>
-          <attribute name="getPowerConsumption" value="SumPower" />
-        </attributes>
-      </object>
-    </item>
     <item id="de209ded8c684334b4eefa39c168ba40" cid="ELEM001" type="universal-block" name="Fermentatie Fabriek" creation-date="11/13/2025 09:43:34">
-      <style style-name="Flat Yellow" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#322A2A2A" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF" accuracy="0.9">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#322A2A2A" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF" accuracy="0.9">
         <text-style type="name" color="#2A2A2A" font="Segoe UI;11.25;B" />
         <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
         <text-style type="text" color="#2A2A2A" font="Segoe UI;9.75;" horizontal-alignment="left" />
@@ -413,7 +429,7 @@
           </authors>
           <description />
           <creation-date>11/13/2025 09:42:02</creation-date>
-          <change-date>11/27/2025 14:22:52</change-date>
+          <change-date>12/16/2025 11:40:49</change-date>
           <revision-count>0</revision-count>
           <version />
         </meta>
@@ -421,8 +437,15 @@
           <item id="69363be6e47440bdbceb12721afb7e30" cid="ELEM073" type="universal-connector" creator="" creation-date="11/27/2025 14:22:50" from="de209ded8c684334b4eefa39c168ba40" to="e1f3a0f2c8254674902f8f5fe4c90888">
             <connector end-cap="filled-triangle" />
           </item>
+          <item id="e5916d83506d4a098c9f19c0fc3edf5f" cid="ELEM039" type="text" name="Text4" style-class="Transparent" creator="" creation-date="12/16/2025 11:39:57">
+            <style class="Transparent" />
+            <drawing-text>
+              <text>2 MVA
+</text>
+            </drawing-text>
+          </item>
           <item id="df3a6a2fb1d34754b0e13b0b0aa1ad4f" cid="ELEM004" type="drawing-shape" name="SimpleShape1" creator="" creation-date="11/27/2025 14:12:03">
-            <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF" accuracy="0.9">
+            <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF" accuracy="0.9">
               <text-style type="name" color="#555555" font="Segoe UI;11.25;B" />
               <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
               <text-style type="text" color="#555555" font="Segoe UI;9.75;" horizontal-alignment="left" />
@@ -450,10 +473,10 @@
           <item id="58d78dc1e2ea4d11b4079a59d10abdd9" cid="ELEM012" type="universal-connector" creator="" creation-date="11/13/2025 09:49:57">
             <connector />
           </item>
-          <item id="57156aeced854cd4961473b4b0f9b603" cid="ELEM071" type="universal-connector" creator="" creation-date="11/27/2025 14:22:46" from="de209ded8c684334b4eefa39c168ba40" to="da3150b594324ae9a02301e629db947c">
+          <item id="ff1e820444a84b25830d2960db8fc87e" cid="ELEM069" type="universal-connector" creator="" creation-date="11/27/2025 14:20:31" from="8fde8d848ab042fd9aec2d3b08f5ffff" to="9a87b71fceeb47fb807024d4ab0d06f7">
             <connector end-cap="filled-triangle" />
           </item>
-          <item id="ff1e820444a84b25830d2960db8fc87e" cid="ELEM069" type="universal-connector" creator="" creation-date="11/27/2025 14:20:31" from="8fde8d848ab042fd9aec2d3b08f5ffff" to="9a87b71fceeb47fb807024d4ab0d06f7">
+          <item id="57156aeced854cd4961473b4b0f9b603" cid="ELEM071" type="universal-connector" creator="" creation-date="11/27/2025 14:22:46" from="de209ded8c684334b4eefa39c168ba40" to="da3150b594324ae9a02301e629db947c">
             <connector end-cap="filled-triangle" />
           </item>
           <item id="c74060ca4fab4da99a2d62c453669358" cid="ELEM065" type="universal-connector" creator="" creation-date="11/27/2025 14:16:41" from="46406c5f6b9345119713085bf888b295" to="die0fb6ed6a0b5415e95d3db33a9a4bbbe4704">
@@ -462,6 +485,13 @@
           <item id="bcb5edca867e4f5b802b8d182c3316a6" cid="ELEM064" type="universal-connector" creator="" creation-date="11/27/2025 14:16:37" from="die0fb6ed6a0b5415e95d3db33a9a4bbbe4704" to="de209ded8c684334b4eefa39c168ba40">
             <connector end-cap="arrow" />
           </item>
+          <item id="a394eb6a569f4fef9655e77ad5ca7374" cid="ELEM040" type="text" name="Text5" style-class="Transparent" creator="" creation-date="12/16/2025 11:40:49">
+            <style class="Transparent" />
+            <drawing-text>
+              <text>20 MVA
+</text>
+            </drawing-text>
+          </item>
           <item id="41615d87561c43e891a361ea30df5055" cid="ELEM067" type="universal-connector" creator="" creation-date="11/27/2025 14:20:29" from="2ebad3ad880c433798c5ca1d8fb017c4" to="9a87b71fceeb47fb807024d4ab0d06f7">
             <connector end-cap="filled-triangle" />
           </item>
@@ -469,7 +499,7 @@
             <connector end-cap="arrow" />
           </item>
           <item id="die0fb6ed6a0b5415e95d3db33a9a4bbbe4704" veid="7c4c8f1657c1448685ae65f2e65dd770" cid="ELEM062" type="drawing-line" name="Line2" creator="" creation-date="11/27/2025 14:13:30">
-            <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF" accuracy="0.9">
+            <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF" accuracy="0.9">
               <text-style type="name" color="#555555" font="Segoe UI;11.25;B" />
               <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
               <text-style type="text" color="#555555" font="Segoe UI;9.75;" horizontal-alignment="left" />
@@ -493,22 +523,22 @@
             </style>
             <drawing />
           </item>
-          <item id="9fc278244456433a81463b4ddbc7a8d7" cid="ELEM008" type="universal-connector" creator="" creation-date="11/13/2025 09:46:13" from="9a87b71fceeb47fb807024d4ab0d06f7" to="df3a6a2fb1d34754b0e13b0b0aa1ad4f">
+          <item id="5e4837d073514764bcf5498f6fe14145" cid="ELEM007" type="universal-connector" creator="" creation-date="11/13/2025 09:46:07" from="b044ce5485524ba6a0086bb9c00b93ec" to="df3a6a2fb1d34754b0e13b0b0aa1ad4f">
             <connector end-cap="filled-triangle" />
           </item>
-          <item id="5e4837d073514764bcf5498f6fe14145" cid="ELEM007" type="universal-connector" creator="" creation-date="11/13/2025 09:46:07" from="b044ce5485524ba6a0086bb9c00b93ec" to="df3a6a2fb1d34754b0e13b0b0aa1ad4f">
+          <item id="9fc278244456433a81463b4ddbc7a8d7" cid="ELEM008" type="universal-connector" creator="" creation-date="11/13/2025 09:46:13" from="9a87b71fceeb47fb807024d4ab0d06f7" to="df3a6a2fb1d34754b0e13b0b0aa1ad4f">
             <connector end-cap="filled-triangle" />
           </item>
         </abstract-items>
         <layer id="ccceba4400d3419eb79e4d0e9f3f6dbd" name="Default" visible="true" enabled="true" locked="false">
           <item id="f87f01ffc2e343458485607d68900d0e" iid="aa35854624724e4ba937c8216cf1155c" creation-date="11/13/2025 09:43:34" order-index="0" type="entity">
-            <layout ax="320" ay="560" awidth="101" aheight="70" x="320" y="560" width="101" height="70" />
+            <layout ax="320" ay="560" awidth="101" aheight="70" x="320" y="560" width="101" height="70" expanded="0,0,0,0" collapsed="0,0,0,0" />
           </item>
           <item id="9a87b71fceeb47fb807024d4ab0d06f7" iid="f122f43c62d34e2eb5d2c0cb0b12371f" creation-date="11/13/2025 09:43:34" order-index="0" type="entity">
-            <layout ax="450" ay="220" awidth="101" aheight="70" x="450" y="220" width="101" height="70" />
+            <layout ax="450" ay="220" awidth="101" aheight="70" x="450" y="220" width="101" height="70" expanded="0,0,0,0" collapsed="0,0,0,0" />
           </item>
           <item id="b044ce5485524ba6a0086bb9c00b93ec" iid="c7cb1ea4df7b4228bb3489cbd04260a0" creation-date="11/13/2025 09:43:34" order-index="0" type="entity">
-            <layout ax="320" ay="220" awidth="101" aheight="70" x="320" y="220" width="101" height="70" />
+            <layout ax="320" ay="220" awidth="101" aheight="70" x="320" y="220" width="101" height="70" expanded="0,0,0,0" collapsed="0,0,0,0" />
           </item>
           <item id="5e4837d073514764bcf5498f6fe14145" iid="6b618512d9d546f1994c32136fd731ed" creation-date="11/13/2025 09:46:07" order-index="3" type="relation">
             <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="371" y1="290" x2="436" y2="360" start-border-pos="0.6237623762376238" end-border-pos="0.12329374040876116" start-local-pos="51" end-local-pos="34.522247" name-position="0,20" name-width="70">
@@ -547,7 +577,7 @@
           <item id="die0fb6ed6a0b5415e95d3db33a9a4bbbe4704" iid="199820f7983b4233a46ee59c21a0c552" creation-date="11/27/2025 14:13:30" order-index="8" type="entity">
             <layout ax="320" ay="500" awidth="231" aheight="1" x="50" y="50" width="140" height="160" rotation-center="-1.5289389,-500.5" />
             <drawing-line start-point="320,500" end-point="550,500" />
-            <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF" accuracy="0.9">
+            <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF" accuracy="0.9">
               <text-style type="name" color="#555555" font="Segoe UI;11.25;B" />
               <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
               <text-style type="text" color="#555555" font="Segoe UI;9.75;" horizontal-alignment="left" />
@@ -571,7 +601,7 @@
             </style>
           </item>
           <item id="de209ded8c684334b4eefa39c168ba40" iid="15d0371adef5458ca3de59bc004029f0" creation-date="11/13/2025 09:43:34" order-index="0" type="entity">
-            <layout ax="450" ay="560" awidth="101.00003" aheight="70" x="450" y="560" width="101" height="70" />
+            <layout ax="450" ay="560" awidth="101.00003" aheight="70" x="450" y="560" width="101" height="70" expanded="0,0,0,0" collapsed="0,0,0,0" />
           </item>
           <item id="b597c4c22f574400b36f1dbdb3ff3d24" iid="e28fae907e8a4142a527360e556c6111" creation-date="11/27/2025 14:16:32" order-index="9" type="relation">
             <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="370" y1="501" x2="370" y2="560" start-border-pos="0.6958874464035034" end-border-pos="0.12376237623762376" start-local-pos="50" end-local-pos="50" name-position="0,20">
@@ -601,34 +631,34 @@
             <relation from="46406c5f6b9345119713085bf888b295" from-iid="96ca9c27132a4cf997ea7d6ed4a4a959" to="die0fb6ed6a0b5415e95d3db33a9a4bbbe4704" to-iid="199820f7983b4233a46ee59c21a0c552" />
           </item>
           <item id="2ebad3ad880c433798c5ca1d8fb017c4" iid="2a6ee1e52a804a258467cfab5c23593f" creation-date="11/13/2025 09:43:34" order-index="0" type="entity">
-            <layout ax="380" ay="90" awidth="101" aheight="70" x="380" y="90" width="101" height="70" />
+            <layout ax="381" ay="60.5" awidth="101" aheight="70" x="381" y="60" width="101" height="70" expanded="381,60.5,101,70" collapsed="0,0,0,0" />
           </item>
           <item id="8fde8d848ab042fd9aec2d3b08f5ffff" iid="3a389d7075674cf49c65bd6757cae115" creation-date="11/13/2025 09:43:34" order-index="0" type="entity">
-            <layout ax="520" ay="90" awidth="101" aheight="70" x="520" y="90" width="101" height="70" />
+            <layout ax="519" ay="60.5" awidth="101" aheight="70" x="518" y="61" width="101" height="70" expanded="519,60.5,101,70" collapsed="0,0,0,0" />
           </item>
           <item id="41615d87561c43e891a361ea30df5055" iid="17cb25c7ea4b492abfd5704c7f13bf43" creation-date="11/27/2025 14:20:29" order-index="12" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="430" y1="160" x2="500" y2="220" start-border-pos="0.6262376237623762" end-border-pos="0.12376237623762376" name-position="0,20">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="431" y1="130" x2="500" y2="220" start-border-pos="0.6262376237623762" end-border-pos="0.12376237623762376" name-position="0,20">
               <points>
-                <point x="430" y="160" />
+                <point x="431" y="130" />
                 <point x="500" y="220" />
               </points>
             </layout>
             <relation from="2ebad3ad880c433798c5ca1d8fb017c4" from-iid="2a6ee1e52a804a258467cfab5c23593f" to="9a87b71fceeb47fb807024d4ab0d06f7" to-iid="f122f43c62d34e2eb5d2c0cb0b12371f" />
           </item>
           <item id="ff1e820444a84b25830d2960db8fc87e" iid="938b70ccddba4278be8acc3f02c7c30e" creation-date="11/27/2025 14:20:31" order-index="13" type="relation">
-            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="570" y1="160" x2="500" y2="220" start-border-pos="0.6262376237623762" end-border-pos="0.12376237660646439" end-local-pos="50" name-position="40,10" name-width="60">
+            <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="569" y1="130" x2="500" y2="220" start-border-pos="0.6262376237623762" end-border-pos="0.12376237660646439" end-local-pos="50" name-position="40,10" name-width="60">
               <points>
-                <point x="570" y="160" />
+                <point x="569" y="130" />
                 <point x="500" y="220" />
               </points>
             </layout>
             <relation from="8fde8d848ab042fd9aec2d3b08f5ffff" from-iid="3a389d7075674cf49c65bd6757cae115" to="9a87b71fceeb47fb807024d4ab0d06f7" to-iid="f122f43c62d34e2eb5d2c0cb0b12371f" />
           </item>
           <item id="da3150b594324ae9a02301e629db947c" iid="d7099fcad9e54427b6b95af1b5b059fd" creation-date="11/13/2025 09:43:34" order-index="0" type="entity">
-            <layout ax="380" ay="700" awidth="101" aheight="70" x="380" y="700" width="101" height="70" />
+            <layout ax="380" ay="700" awidth="101" aheight="70" x="380" y="700" width="101" height="70" expanded="0,0,0,0" collapsed="0,0,0,0" />
           </item>
           <item id="e1f3a0f2c8254674902f8f5fe4c90888" iid="4d568e9d479c4fa0b3ffed0e47f7c785" creation-date="11/13/2025 09:43:34" order-index="0" type="entity">
-            <layout ax="520" ay="700" awidth="101" aheight="70" x="520" y="700" width="101" height="70" />
+            <layout ax="520" ay="700" awidth="101" aheight="70" x="520" y="700" width="101" height="70" expanded="0,0,0,0" collapsed="0,0,0,0" />
           </item>
           <item id="57156aeced854cd4961473b4b0f9b603" iid="bf1c2fd940a64bb78085e673dd03fdda" creation-date="11/27/2025 14:22:46" order-index="14" type="relation">
             <layout line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="500" y1="630" x2="430" y2="700" start-border-pos="0.6262375856191547" end-border-pos="0.12376237623762376" name-position="0,20">
@@ -647,6 +677,15 @@
               </points>
             </layout>
             <relation from="de209ded8c684334b4eefa39c168ba40" from-iid="15d0371adef5458ca3de59bc004029f0" to="e1f3a0f2c8254674902f8f5fe4c90888" to-iid="4d568e9d479c4fa0b3ffed0e47f7c785" />
+          </item>
+          <item id="e5916d83506d4a098c9f19c0fc3edf5f" iid="a476f76056614d52807785c04a3b5b96" creation-date="12/16/2025 11:39:57" order-index="16" type="drawing-text">
+            <layout ax="397" ay="157.5" awidth="69" aheight="28" x="387" y="158" width="69" height="28" />
+          </item>
+          <item id="5ffacd85148549c1a17b8ef32f2741cf" iid="db28bd09bc0249f89eb8edf06b49a702" creation-date="12/16/2025 11:39:57" order-index="0" type="drawing-text">
+            <layout ax="535" ay="157.5" awidth="69" aheight="28" x="552" y="157" width="69" height="28" />
+          </item>
+          <item id="a394eb6a569f4fef9655e77ad5ca7374" iid="31341ede86b74bb79e575623f55ca260" creation-date="12/16/2025 11:40:49" order-index="17" type="drawing-text">
+            <layout ax="486" ay="401" awidth="68" aheight="22" x="486" y="401" width="68" height="22" />
           </item>
         </layer>
       </diagram>
@@ -667,26 +706,23 @@
           <version />
         </meta>
         <abstract-items>
-          <item id="1ad6e55ded1140378fb85cb4376db339" cid="PROP010" type="property" name="heatCofficient" owner="f067938ff53e40859fca8f721b07fc53" creator="" creation-date="11/20/2025 14:24:27" visibility="private">
-            <structural-feature type="Real" type-id="Uml.Real" />
-          </item>
           <item id="819009f6a16f48d8bf95d5625a01cff3" cid="PROP024" type="property" name="timeSeconds" owner="6960eb2419f74674aa712d428fc49d0d" creator="" creation-date="11/20/2025 14:34:41" visibility="private">
             <structural-feature type="Integer" type-id="Uml.Integer" />
+          </item>
+          <item id="1ad6e55ded1140378fb85cb4376db339" cid="PROP010" type="property" name="heatCofficient" owner="f067938ff53e40859fca8f721b07fc53" creator="" creation-date="11/20/2025 14:24:27" visibility="private">
+            <structural-feature type="Real" type-id="Uml.Real" />
           </item>
           <item id="32b440f1a593411e9b7d004d06aa0b2b" cid="PROP021" type="property" name="accuracy" owner="f860bda6d071492d9e03be7455809350" creator="" creation-date="11/20/2025 14:33:53" visibility="private">
             <structural-feature type="Integer" type-id="Uml.Integer" />
           </item>
-          <item id="e1c7d7c202a74fce8c4e72cc81c60a87" cid="PROP017" type="property" name="filepath" owner="f860bda6d071492d9e03be7455809350" creator="" creation-date="11/20/2025 14:32:08" visibility="private">
-            <structural-feature type="String" type-id="Uml.String" />
+          <item id="58af6dbb20b94b27a12f0a57dd443ebe" cid="PROP029" type="property" name="accuracy" owner="6960eb2419f74674aa712d428fc49d0d" creator="" creation-date="11/20/2025 14:37:07" visibility="private">
+            <structural-feature type="Integer" type-id="Uml.Integer" />
           </item>
           <item id="3ada15a243fd446a8f209b6ad3ae6faa" cid="PROP027" type="property" name="totalPower" owner="6960eb2419f74674aa712d428fc49d0d" creator="" creation-date="11/20/2025 14:35:04" visibility="private">
             <structural-feature type="Real" type-id="Uml.Real" />
           </item>
-          <item id="58af6dbb20b94b27a12f0a57dd443ebe" cid="PROP029" type="property" name="accuracy" owner="6960eb2419f74674aa712d428fc49d0d" creator="" creation-date="11/20/2025 14:37:07" visibility="private">
-            <structural-feature type="Integer" type-id="Uml.Integer" />
-          </item>
-          <item id="3d01111d6e5a4a45bfe67196ad0b1b40" cid="PROP006" type="property" name="mass" owner="f067938ff53e40859fca8f721b07fc53" creator="" creation-date="11/20/2025 14:23:37" visibility="private">
-            <structural-feature type="Integer" type-id="Uml.Integer" />
+          <item id="e1c7d7c202a74fce8c4e72cc81c60a87" cid="PROP017" type="property" name="filepath" owner="f860bda6d071492d9e03be7455809350" creator="" creation-date="11/20/2025 14:32:08" visibility="private">
+            <structural-feature type="String" type-id="Uml.String" />
           </item>
           <item id="2308b2d38d30497fb13e1e6d970b2e51" cid="OBJ003" type="object" name="symFermentation" style-class="Flat Green" creator="" creation-date="11/20/2025 15:05:16" visibility="undefined">
             <style class="Flat Green" />
@@ -696,6 +732,9 @@
               </attributes>
             </object>
           </item>
+          <item id="3d01111d6e5a4a45bfe67196ad0b1b40" cid="PROP006" type="property" name="mass" owner="f067938ff53e40859fca8f721b07fc53" creator="" creation-date="11/20/2025 14:23:37" visibility="private">
+            <structural-feature type="Integer" type-id="Uml.Integer" />
+          </item>
           <item id="07e6b188904f44bda8b701d187ba1cc2" cid="PROP026" type="property" name="totalCost" owner="6960eb2419f74674aa712d428fc49d0d" creator="" creation-date="11/20/2025 14:34:57" visibility="private">
             <structural-feature type="Real" type-id="Uml.Real" />
           </item>
@@ -704,6 +743,9 @@
           </item>
           <item id="2cff6b1739644256a315110ba70ced5f" cid="PROP028" type="property" name="colums" owner="6960eb2419f74674aa712d428fc49d0d" creator="" creation-date="11/20/2025 14:35:11" visibility="private">
             <structural-feature multiplicity="0..*" type="Integer" type-id="Uml.Integer" />
+          </item>
+          <item id="fcca58f46ab449938910bb7c2dda8c9f" cid="PROP018" type="property" name="timeSeconds" owner="f860bda6d071492d9e03be7455809350" creator="" creation-date="11/20/2025 14:32:16" visibility="private">
+            <structural-feature type="Integer" type-id="Uml.Integer" />
           </item>
           <item id="f067938ff53e40859fca8f721b07fc53" cid="C001" type="class" name="symFermentation" creator="" creation-date="11/13/2025 10:18:19" visibility="undefined">
             <owned-items />
@@ -748,9 +790,6 @@
                 </parameters>
               </operation>
             </operations>
-          </item>
-          <item id="fcca58f46ab449938910bb7c2dda8c9f" cid="PROP018" type="property" name="timeSeconds" owner="f860bda6d071492d9e03be7455809350" creator="" creation-date="11/20/2025 14:32:16" visibility="private">
-            <structural-feature type="Integer" type-id="Uml.Integer" />
           </item>
           <item id="8497d05eb6004cd4b5d2987576f0fe4e" cid="PROP012" type="property" name="thickness" owner="f067938ff53e40859fca8f721b07fc53" creator="" creation-date="11/20/2025 14:25:45" visibility="private">
             <structural-feature type="Real" type-id="Uml.Real" />
@@ -806,16 +845,19 @@
           <item id="cb7fe801717e4024884c688826ea1543" cid="PROP013" type="property" name="surroundingTemperature" owner="f067938ff53e40859fca8f721b07fc53" creator="" creation-date="11/20/2025 14:26:01" visibility="private">
             <structural-feature type="Real" type-id="Uml.Real" />
           </item>
-          <item id="b6663b0b3fec4b9494fafd63e38923ea" cid="PROP020" type="property" name="colums" owner="f860bda6d071492d9e03be7455809350" creator="" creation-date="11/20/2025 14:32:29" visibility="private">
-            <structural-feature multiplicity="0..*" type="Integer" type-id="Uml.Integer" />
-          </item>
           <item id="63266ffba4ed4902a69f70ba12fdc0ee" cid="PROP023" type="property" name="filepath" owner="6960eb2419f74674aa712d428fc49d0d" creator="" creation-date="11/20/2025 14:34:37" visibility="private">
             <structural-feature type="String" type-id="Uml.String" />
+          </item>
+          <item id="b6663b0b3fec4b9494fafd63e38923ea" cid="PROP020" type="property" name="colums" owner="f860bda6d071492d9e03be7455809350" creator="" creation-date="11/20/2025 14:32:29" visibility="private">
+            <structural-feature multiplicity="0..*" type="Integer" type-id="Uml.Integer" />
           </item>
           <item id="b684debd88c64d9bbaa12eaf1a524d24" cid="PROP007" type="property" name="maxPower" owner="f067938ff53e40859fca8f721b07fc53" creator="" creation-date="11/20/2025 14:23:59" visibility="private">
             <structural-feature type="Real" type-id="Uml.Real" />
           </item>
           <item id="di6d47ea3bd8c34269b88ac519f76cc4ad9948" veid="fab08721f4084995a07404d4ba4e41cd" cid="CN002" type="comment-connector" creator="" creation-date="11/27/2025 10:58:32" />
+          <item id="93148391215c4177a8e04ece6f6a5985" cid="PROP016" type="property" name="specificHeat" owner="f067938ff53e40859fca8f721b07fc53" creator="" creation-date="11/20/2025 14:31:11" visibility="private">
+            <structural-feature type="Real" type-id="Uml.Real" />
+          </item>
           <item id="f860bda6d071492d9e03be7455809350" cid="C002" type="class" name="symPowerUsage" creator="" creation-date="11/18/2025 10:07:27" visibility="undefined">
             <owned-items />
             <attributes>
@@ -836,9 +878,6 @@
               </operation>
               <operation id="o7fef308352a54a2e86a8788dbda6cc8c394" cid="OP009" name="getPowerConsumption" creation-date="11/18/2025 10:08:37" type="Real" type-id="Uml.Real" visibility="public" />
             </operations>
-          </item>
-          <item id="93148391215c4177a8e04ece6f6a5985" cid="PROP016" type="property" name="specificHeat" owner="f067938ff53e40859fca8f721b07fc53" creator="" creation-date="11/20/2025 14:31:11" visibility="private">
-            <structural-feature type="Real" type-id="Uml.Real" />
           </item>
         </abstract-items>
         <layer id="7b7de35972cd4acba7ac481df2ebd7a5" name="Default" visible="true" enabled="true" locked="false">
@@ -898,7 +937,7 @@
             <style class="Blue White Bold" />
           </item>
           <item id="515f9cdda9fd4039a62df77121c0b3db" cid="ELEM038" type="text" name="Text3" creator="" creation-date="11/27/2025 09:56:32">
-            <style style-name="Transparent" shadow-type="smooth" shadow-offset="2,2" shadow-color="#32000000" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF" accuracy="0.9">
+            <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-color="#32000000" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF" accuracy="0.9">
               <text-style type="name" color="#000000" font="Segoe UI;12.75;B" />
               <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
               <text-style type="text" color="#000000" font="Segoe UI;12.75;B" />
@@ -921,8 +960,7 @@
               </alternate-styles>
             </style>
             <drawing-text>
-              <text>Main function call
-</text>
+              <text>Main function call</text>
             </drawing-text>
           </item>
           <item id="f38528884f21437e96e054104b886d2a" cid="ELEM029" type="universal-connector" creator="" creation-date="11/27/2025 09:41:25" from="8582bf04785043ffb1ff377b130e523d" to="cc0c8b29476c4dfc972bf53d95f0ad73">
@@ -950,7 +988,7 @@
             <connector end-cap="filled-triangle" />
           </item>
           <item id="693a763c037847f59510e346008432ce" cid="ELEM035" type="text" name="Text2" creator="" creation-date="11/27/2025 09:47:46">
-            <style style-name="Transparent" shadow-type="smooth" shadow-offset="2,2" shadow-color="#32000000" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF" accuracy="0.9">
+            <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-color="#32000000" wrap-name-text="true" wrap-other-text="true" padding="1" glow-color="#FFFFFF" accuracy="0.9">
               <text-style type="name" color="#000000" font="Segoe UI;15.75;B" />
               <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
               <text-style type="text" color="#000000" font="Segoe UI;15.75;B" />
@@ -973,29 +1011,28 @@
               </alternate-styles>
             </style>
             <drawing-text>
-              <text>Initial call 
-</text>
+              <text>Initial call</text>
             </drawing-text>
           </item>
         </abstract-items>
         <layer id="6fc5a196017f4ed5aab96ea6eaa04ea9" name="Default" visible="true" enabled="true" locked="false">
           <item id="7afd54ca66ed4a80baeca1035cf38572" iid="0602ff5319f4417aa58e444faebb970f" creation-date="11/27/2025 09:48:28" order-index="12" type="entity">
-            <layout ax="240" ay="340" awidth="170" aheight="260" x="240" y="340" width="170" height="260" />
+            <layout ax="240" ay="340" awidth="170" aheight="260" x="240" y="340" width="170" height="260" expanded="0,0,0,0" collapsed="0,0,0,0" />
           </item>
           <item id="aad5c7f4fcf84b9aaeff5ec1ad91ebe5" iid="4e588300e8214c6d9d9562a57447e6b3" creation-date="11/27/2025 09:47:29" order-index="10" type="entity">
-            <layout ax="240" ay="-40" awidth="170" aheight="380" x="240" y="-40" width="170" height="380" />
+            <layout ax="240" ay="-40" awidth="170" aheight="380" x="240" y="-40" width="170" height="380" expanded="0,0,0,0" collapsed="0,0,0,0" />
           </item>
           <item id="8582bf04785043ffb1ff377b130e523d" iid="585afc5609ad44d69f445402c9e33621" creation-date="11/20/2025 14:45:42" order-index="0" type="entity">
-            <layout ax="279" ay="5" awidth="91" aheight="76" x="279" y="5" width="91" height="76" />
+            <layout ax="279" ay="5" awidth="91" aheight="76" x="279" y="5" width="91" height="76" expanded="0,0,0,0" collapsed="0,0,0,0" />
           </item>
           <item id="a79517d6321749d282230e7045334a37" iid="e65682b5b35d4c828eef60af106f1828" creation-date="11/20/2025 14:46:26" order-index="1" type="entity">
-            <layout ax="279" ay="247" awidth="91" aheight="76" x="279" y="247" width="92" height="76" />
+            <layout ax="279" ay="247" awidth="91" aheight="76" x="279" y="247" width="92" height="76" expanded="0,0,0,0" collapsed="0,0,0,0" />
           </item>
           <item id="cc0c8b29476c4dfc972bf53d95f0ad73" iid="25b7768b01fe45fea1c94b31fdd25d07" creation-date="11/20/2025 14:45:42" order-index="0" type="entity">
-            <layout ax="279" ay="126" awidth="91" aheight="76" x="279" y="126" width="91" height="76" />
+            <layout ax="279" ay="126" awidth="91" aheight="76" x="279" y="126" width="91" height="76" expanded="0,0,0,0" collapsed="0,0,0,0" />
           </item>
           <item id="fa40a1f8627f42adadceb1eee1b7e39f" iid="98c7a0e6e14d4e549ac1cd4422a3be07" creation-date="11/27/2025 09:40:39" order-index="2" type="entity">
-            <layout ax="280" ay="368" awidth="90" aheight="76" x="280" y="368" width="90" height="160" />
+            <layout ax="280" ay="368" awidth="90" aheight="76" x="280" y="368" width="90" height="160" expanded="0,0,0,0" collapsed="0,0,0,0" />
           </item>
           <item id="e3f0ac12b6654ae293309294efc711fa" iid="3c3150730f6b4775b92dc54fab2c6a4e" creation-date="11/27/2025 09:40:39" order-index="3" type="relation">
             <layout line-style="oblique" lock-start-point="true" lock-to-fields="false" auto-path="" x1="324" y1="323" x2="325" y2="368" start-border-pos="0.6263736263736264" end-border-pos="0.12372826470269097" start-local-pos="45" name-position="0,20">
@@ -1007,7 +1044,7 @@
             <relation from="a79517d6321749d282230e7045334a37" from-iid="e65682b5b35d4c828eef60af106f1828" to="fa40a1f8627f42adadceb1eee1b7e39f" to-iid="98c7a0e6e14d4e549ac1cd4422a3be07" />
           </item>
           <item id="d34ad51d88fa4c16af924b4969c03591" iid="5a04da889ad84818bd2e84ca44b97284" creation-date="11/27/2025 09:41:12" order-index="4" type="entity">
-            <layout ax="279" ay="489" awidth="91" aheight="76" x="278.5" y="489" width="91" height="160" />
+            <layout ax="279" ay="489" awidth="91" aheight="76" x="278.5" y="489" width="91" height="160" expanded="0,0,0,0" collapsed="0,0,0,0" />
           </item>
           <item id="e84b31bf282748eead6a5b7967dbc0b7" iid="cc5c37d3696a4301b1cd0531f840fa55" creation-date="11/27/2025 09:41:12" order-index="5" type="relation">
             <layout line-style="oblique" lock-start-point="true" lock-to-fields="false" auto-path="" x1="325" y1="444" x2="324" y2="489" start-border-pos="0.6263736263736264" end-border-pos="0.12488413381052542" start-local-pos="45" name-position="0,20">
@@ -1140,7 +1177,7 @@
             <control-flow from="710000c0ccd74b6797ee8fd70d57758d" to="7af01ecb03e249cabb56b36f1bd2d881" visibility="package" guard="" weight="" />
           </item>
           <item id="5abd2c8e939742a5871060410173fd1c" cid="DC001" type="decision" name="SimTime &lt; TimeStep " owner="58b14775aad541be99eaf126a53c29cc" creator="" creation-date="11/20/2025 14:52:48" visibility="undefined">
-            <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF" accuracy="0.9">
+            <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" glow-color="#FFFFFF" accuracy="0.9">
               <text-style type="name" color="#555555" font="Segoe UI;11.25;B" />
               <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
               <text-style type="text" color="#555555" font="Segoe UI;9.75;" horizontal-alignment="left" />
@@ -1190,11 +1227,14 @@
           <item id="348e5d157ecc49ed873be796fc1b80d0" cid="ELEM020" type="control-flow" creator="" creation-date="11/20/2025 15:28:57" from="710000c0ccd74b6797ee8fd70d57758d" to="c0eef8e75de3471c873f8954b06c79b0" visibility="package" guard="" weight="">
             <control-flow from="710000c0ccd74b6797ee8fd70d57758d" to="c0eef8e75de3471c873f8954b06c79b0" visibility="package" guard="" weight="" />
           </item>
+          <item id="ddb0291ff80d4e5586b2033211217497" cid="ELEM022" type="control-flow" creator="" creation-date="11/20/2025 15:30:11" from="a42a601346354130a29de8e8da4839bf" to="7af01ecb03e249cabb56b36f1bd2d881" visibility="package" guard="" weight="">
+            <control-flow from="a42a601346354130a29de8e8da4839bf" to="7af01ecb03e249cabb56b36f1bd2d881" visibility="package" guard="" weight="" />
+          </item>
           <item id="96a53abfd83e414ab09d73ba5d437708" cid="A004" type="activity" name="Increase timestep" creator="" creation-date="11/27/2025 10:22:46" visibility="undefined">
             <stereotypes>
               <stereotype name="activity" />
             </stereotypes>
-            <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" text-wrapping-threshold="419" padding="2" glow-color="#FFFFFF" accuracy="0.9">
+            <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" text-wrapping-threshold="419" padding="2" glow-color="#FFFFFF" accuracy="0.9">
               <text-style type="name" color="#555555" font="Segoe UI;11.25;B" />
               <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
               <text-style type="text" color="#555555" font="Segoe UI;9.75;" horizontal-alignment="left" />
@@ -1218,9 +1258,6 @@
             </style>
             <activity />
           </item>
-          <item id="ddb0291ff80d4e5586b2033211217497" cid="ELEM022" type="control-flow" creator="" creation-date="11/20/2025 15:30:11" from="a42a601346354130a29de8e8da4839bf" to="7af01ecb03e249cabb56b36f1bd2d881" visibility="package" guard="" weight="">
-            <control-flow from="a42a601346354130a29de8e8da4839bf" to="7af01ecb03e249cabb56b36f1bd2d881" visibility="package" guard="" weight="" />
-          </item>
           <item id="192985837d3d427fa6b7273636e3984d" cid="ELEM010" type="control-flow" name="False" owner="58b14775aad541be99eaf126a53c29cc" creator="" creation-date="11/20/2025 14:54:55" from="5abd2c8e939742a5871060410173fd1c" to="0e550c8c42554b66b3af2ff528fc7e84" visibility="package" guard="" weight="">
             <control-flow from="5abd2c8e939742a5871060410173fd1c" to="0e550c8c42554b66b3af2ff528fc7e84" visibility="package" guard="" weight="" />
           </item>
@@ -1230,7 +1267,7 @@
           <item id="5713a1173e424753ba02d4726029ebd7" cid="ELEM018" type="control-flow" creator="" creation-date="11/20/2025 15:28:02" from="c0eef8e75de3471c873f8954b06c79b0" to="a42a601346354130a29de8e8da4839bf" visibility="package" guard="" weight="">
             <control-flow from="c0eef8e75de3471c873f8954b06c79b0" to="a42a601346354130a29de8e8da4839bf" visibility="package" guard="" weight="" />
           </item>
-          <item id="e51e43bbdde14bcc81586fdca924f65c" cid="A005" type="activity" name="calcGreenEnergy" creator="" creation-date="11/27/2025 13:06:09">
+          <item id="e51e43bbdde14bcc81586fdca924f65c" cid="A005" type="activity" name="calcGreenEnergy" creator="" creation-date="11/27/2025 13:06:09" visibility="undefined">
             <activity />
           </item>
           <item id="1bfd94ec1a9c42b9830c272088607189" cid="ELEM025" type="control-flow" creator="" creation-date="11/20/2025 15:32:17" to="2308b2d38d30497fb13e1e6d970b2e51" visibility="package" guard="" weight="">
