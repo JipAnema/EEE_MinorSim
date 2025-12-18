@@ -10,13 +10,14 @@ import csv
 from collections import defaultdict
 
 class calcEnergyPrice:
-    def __init__(self, filepath):
+    def __init__(self, filepath, enableWrapping):
         self.filepath = filepath
         self.timeSeconds = 0
         self.index = 0
         self.totalCost = 0
         self.totalPower = 0
         self.colums = defaultdict(list)
+        self.enableWrapping = enableWrapping
 
         # Open and write colums to list
         with open(self.filepath) as file:
@@ -27,6 +28,11 @@ class calcEnergyPrice:
         
         # Read cost accuracy (first input is used)
         self.accuracy = int(self.colums['accuracy(min)'][0]) * 60
+
+    # Set time in seconds
+    def setTimeSeconds(self,seconds):
+        self.timeSeconds = seconds
+        self.index = int(self.timeSeconds / self.accuracy)
 
     # Return current price based on time from PowerUsage()
     def getCurrentPrice(self):
@@ -47,6 +53,13 @@ class calcEnergyPrice:
         if self.timeSeconds % self.accuracy == 0:
             self.index += 1
     
+        # Check if index is in range
+        if self.__indexInRange() == False:
+            if not self.enableWrapping:
+                return -1
+            else:
+                self.index = 0
+        
         self.totalCost += self.getPowerCost(currentPower / 3600 )
         self.totalPower += (currentPower / 3600)
 

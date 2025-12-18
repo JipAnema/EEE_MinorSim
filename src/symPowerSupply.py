@@ -11,7 +11,7 @@ import bisect
 from collections import defaultdict
 
 class symPowerSupply:
-    def __init__(self, filepath, upperLimit, lowerLimit, factor, count, enableInterpolation):
+    def __init__(self, filepath, upperLimit, lowerLimit, factor, count, enableInterpolation, enableWrapping):
         self.filepath = filepath
         self.timeSeconds = 0
         self.index = 0
@@ -22,6 +22,7 @@ class symPowerSupply:
         self.previusProduction = 0
         self.previusScaledPower = 0
         self.enableInterpolation = enableInterpolation
+        self.enableWrapping = enableWrapping
         self.colums = defaultdict(list)
 
         # Open and write colums to list
@@ -34,6 +35,11 @@ class symPowerSupply:
         # Read power accuracy (first input is used)
         self.accuracy = int(self.colums['accuracy(sec)'][0])
 
+    # Set time in seconds
+    def setTimeSeconds(self,seconds):
+        self.timeSeconds = seconds
+        self.index = int(self.timeSeconds / self.accuracy)
+
     # Return scaled and interpolated power production
     def getPowerProduction(self):
         # Check time step
@@ -42,8 +48,10 @@ class symPowerSupply:
             self.index += 1
 
         # Check for out of bounds index
-        if self.index > len(self.colums['production']) - 1:
+        if self.index > len(self.colums['production']) - 1 and not self.enableWrapping:
             return -1
+        elif self.index > len(self.colums['production']) - 1 and self.enableWrapping:
+            self.index = 0
 
         production = float(self.colums['production'][self.index].replace(",", "."))
 
