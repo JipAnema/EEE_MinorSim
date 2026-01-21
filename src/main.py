@@ -1,7 +1,6 @@
 # Name: main.py
 # Description: Main python file. Contains the simulation
 # Usage: Enable/Disable stats and plotting, adjust settings and run the file.   
-# Written by: Jip
 
 # Imports
 import symFermentation as fw
@@ -17,11 +16,11 @@ import csv
 # ================================================================================== #
 ' Simulation settings  '
 
-timesteps = aux.timeToSecond(15,0,0,0)  # Time to simulate (day,hour,minute,second)
-offsetTime = aux.timeToSecond(150,0,0,0)  # Offset time in seconds for power profiles (day,hour,minute,second)
-setpoint = 40.0                         # Target temperature in Celsius
-transformerRating = 2000                # kVA rating of transformer
-pvFactor = [0,0],[1200,2823.529]        # Linear factor to convert j/m2 to kW for PV system
+timesteps = aux.timeToSecond(16,0,0,0)    # Time to simulate (day,hour,minute,second)
+offsetTime = aux.timeToSecond(90,0,0,0)    # Offset time in seconds for power profiles (day,hour,minute,second)
+offsetTimeProd = aux.timeToSecond(0,0,0,0)# Offset fermentation proces relative to offsetTime (day,hour,minute,second)
+transformerRating = 2000                  # kVA rating of transformer
+pvFactor = [0,0],[1200,2823.529]          # Linear factor to convert j/m2 to kW for PV system
 windFactor =  [0, 0],[3, 0],[3.5, 36],\
   [4, 76],[4.5, 134],[5, 192],[5.5, 269],\
   [6, 346],[6.5, 465],[7, 584],[7.5, 737],\
@@ -40,7 +39,6 @@ greyCO2factor = 445.25                  # g CO2 per kWh for grey energy consumpt
 power1 = pu.symPowerUsage('CSV profiles/fermentationProfile.csv', True, True, 0)
 otherTrafoLoad = pu.symPowerUsage('CSV profiles/otherLoad.csv', True, True, 0)
 battery = pu.symPowerUsage('CSV profiles/battery.csv',True, False, -400)
-fermentatie1 = fw.symFermentation(100000, 4186, 200, 20.0, 0.1, 20, 0.05, 10.0 )  # 1000 kg, water, 200 kW heater, initial temp 20C, warmtegeleiding_coeff 0.1, oppervlakte 20m2, dikte 0.05m, omgeving temp 10C
 costCalculator = price.calcEnergyPrice('CSV profiles/costOfEnergy.csv', True)
 pvSystem = ps.symPowerSupply('CSV profiles/pvProfile.csv', 2000, 0, pvFactor,1, True,True)  # 2000 kW peak 1 'group' of panels
 windSystem = ps.symPowerSupply('CSV profiles/windProfile.csv', 6000, 0, windFactor,2, True,True)  # 6000 kW peak 2 turbines
@@ -51,7 +49,6 @@ windSystem = ps.symPowerSupply('CSV profiles/windProfile.csv', 6000, 0, windFact
 startStat = False
 
 if startStat:
-  print("Initial Temperature:", fermentatie1.getTemperature(), "°C")
   print("Transformer Rating:", transformerRating, "kVA")
 
 # ================================================================================== #
@@ -63,27 +60,24 @@ powerUsage = defaultdict(list)
 enableBattery = False
 startTime = time.perf_counter() 
 
-
+# Offset entire symulation in time
 power1.setTimeSeconds(offsetTime)
+power1.offsetOutputIndex(offsetTimeProd, True)
 otherTrafoLoad.setTimeSeconds(offsetTime)
 battery.setTimeSeconds(offsetTime)
 pvSystem.setTimeSeconds(offsetTime)
 windSystem.setTimeSeconds(offsetTime)
 costCalculator.setTimeSeconds(offsetTime)
 
-fermentatie1.setNewTemperature(setpoint)  # Set target temperature to 25C
+# Simulation (second based)
 for t in range(timesteps):
   facilityPower = 0
   greenPowerProduction = 0
   powerBuffer = 0
   totalTrafoLoad = 0
+  facilityGreenCO2Percentage = 0
   
   ' Consumers '
-  # Fermentatie 1 WORDT ER UIT GEHAALD
-  #powerBuffer = fermentatie1.getPowerConsumption()
-  #powerUsage['Ferm1'].append(powerBuffer)
-  #facilityPower += powerBuffer
-
   # Power Sim 1
   powerBuffer = power1.getPowerConsumption()
   if not aux.isValueGood(powerBuffer,"Power sim 1"):
@@ -129,9 +123,13 @@ for t in range(timesteps):
   faciltyGreenCO2 = greenCO2Production * facilityPowerShare
   facilityGreyCO2 = (totalTrafoLoad - aux.limit(0,greenPowerProduction,totalTrafoLoad)) * greyCO2factor / 3600 * facilityPowerShare
   faciltyTotalCO2 = faciltyGreenCO2 + facilityGreyCO2
+
+  facilityGreenCO2Percentage = aux.limit(0,greenPowerProduction,totalTrafoLoad) / totalTrafoLoad * 100
+
   powerUsage['FacilityGreenCO2'].append(faciltyGreenCO2)
   powerUsage['FacilityGreyCO2'].append(facilityGreyCO2)
   powerUsage['FacilityTotalCO2'].append(faciltyTotalCO2)
+  powerUsage['FacilityGreenCO2Percentage'].append(facilityGreenCO2Percentage)
 
   # Cumulative CO2 production (integrating)
   totalCO2Production += faciltyTotalCO2 / 1000
@@ -139,8 +137,6 @@ for t in range(timesteps):
 
   # Keep last (End of sim)
   secondsPassed += 1
-
-#secondsPassed += 1
 
 # ================================================================================== #
 ' Write outputs to CSV '
@@ -150,11 +146,11 @@ csvPath = 'CSV profiles\SimulationOutput.csv'
 
 if writeCSV:
   # Compact all the data (and structure to colums) powerUsage['Ferm1'],
-  data = zip(powerUsage['time'],powerUsage['CurrentPcost'],powerUsage['Power1'], powerUsage['TotalTrafoLoad'],powerUsage['PVProduction'],powerUsage['WindProduction'],powerUsage['FacilityGreenCO2'], powerUsage['FacilityGreyCO2'], powerUsage['totalCO2Production'])
+  data = zip(powerUsage['time'],powerUsage['CurrentPcost'],powerUsage['Power1'], powerUsage['TotalTrafoLoad'],powerUsage['PVProduction'],powerUsage['WindProduction'],powerUsage['FacilityGreenCO2'], powerUsage['FacilityGreyCO2'], powerUsage['totalCO2Production'], powerUsage['FacilityGreenCO2Percentage'])
 
   # Write data to csv
   with open(csvPath,'w', newline= '') as simcsv:
-    fieldnames = ['time','Current Power Cost (euro)','Power sim 1(kW)', 'Total Transformer Load(kW)', 'PV Production(kW)', 'Wind Production(kW)', 'Facility Green CO2(g CO2)', 'Facility Grey CO2(g CO2)', 'Facility Cumulative CO2(kg CO2)']
+    fieldnames = ['time','Current Power Cost (euro)','Power sim 1(kW)', 'Total Transformer Load(kW)', 'PV Production(kW)', 'Wind Production(kW)', 'Facility Green CO2(g CO2)', 'Facility Grey CO2(g CO2)', 'Facility Cumulative CO2(kg CO2)', 'Facility Green CO2 percentage (Current % green CO2 of total CO2)']
     writer = csv.writer(simcsv,delimiter=';') 
     writer.writerow(fieldnames)
     writer.writerows(data)
@@ -168,7 +164,6 @@ endStat = True
 
 if endStat:
   print("Minutes Passed:", secondsPassed / 60)
-  #print("Final Temperature:", fermentatie1.get_temp(), "°C")
   print("Total Power Consumption:", round(costCalculator.getTotalPower(),4) , "kWh")
   print("Total Power Cost:", costCalculator.getTotalCost(), "Euro")
   print("Total Facility CO2 production:", round(totalCO2Production,4), "kG CO2")

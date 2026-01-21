@@ -10,10 +10,10 @@ import csv
 from collections import defaultdict
 
 class symPowerUsage:
-    def __init__(self, filepath, enableWrapping,enableInterpolate ,offset):
+    def __init__(self, filepath, enableWrapping, enableInterpolate, offset):
         self.filepath = filepath
         self.timeSeconds = 0
-        self.index = 0
+        self.index = int(0)
         self.colums = defaultdict(list)
         self.enableWrapping = enableWrapping
         self.enableInterpolate = enableInterpolate
@@ -28,11 +28,20 @@ class symPowerUsage:
         
         # Read power accuracy (first input is used)
         self.accuracy = int(self.colums['accuracy(sec)'][0])
+
+    # Offset time index
+    def offsetOutputIndex(self, seconds, increase):
+        if increase:
+            self.index += int(seconds / self.accuracy)
+            self.timeSeconds += seconds
+        else:
+            self.index -= int(seconds / self.accuracy)
+            self.timeSeconds += seconds
     
     # Set time in seconds
     def setTimeSeconds(self,seconds):
         self.timeSeconds = seconds
-        self.index = int(self.timeSeconds / self.accuracy)
+        self.index = int((self.timeSeconds / self.accuracy) % len(self.colums['power(kw)']))
 
     def getPowerConsumption(self):
         # Check time step

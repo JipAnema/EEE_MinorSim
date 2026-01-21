@@ -38,7 +38,7 @@ class symPowerSupply:
     # Set time in seconds
     def setTimeSeconds(self,seconds):
         self.timeSeconds = seconds
-        self.index = int(self.timeSeconds / self.accuracy)
+        self.index = int((self.timeSeconds / self.accuracy) % len(self.colums['production']))
 
     # Return scaled and interpolated power production
     def getPowerProduction(self):
@@ -79,7 +79,6 @@ class symPowerSupply:
     # 
     def __getScaledPower(self,production):
         # Check for previus value
-        # TODO: Rework after lineair interpolation?
         if production == self.previusProduction:
             return self.previusScaledPower
         
