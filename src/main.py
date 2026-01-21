@@ -18,7 +18,7 @@ import csv
 
 timesteps = aux.timeToSecond(16,0,0,0)    # Time to simulate (day,hour,minute,second)
 offsetTime = aux.timeToSecond(90,0,0,0)    # Offset time in seconds for power profiles (day,hour,minute,second)
-offsetTimeProd = aux.timeToSecond(0,0,0,0)# Offset fermentation proces relative to offsetTime (day,hour,minute,second)
+offsetTimeProd = aux.timeToSecond(0,-28,0,0)# Offset fermentation proces relative to offsetTime (day,hour,minute,second)
 transformerRating = 2000                  # kVA rating of transformer
 pvFactor = [0,0],[1200,2823.529]          # Linear factor to convert j/m2 to kW for PV system
 windFactor =  [0, 0],[3, 0],[3.5, 36],\
@@ -44,7 +44,7 @@ pvSystem = ps.symPowerSupply('CSV profiles/pvProfile.csv', 2000, 0, pvFactor,1, 
 windSystem = ps.symPowerSupply('CSV profiles/windProfile.csv', 6000, 0, windFactor,2, True,True)  # 6000 kW peak 2 turbines
 
 # ================================================================================== #
-' Start stats '
+' Start stats ' 
 # Changing the var 'startStat' will enable/disable start statistics.
 startStat = False
 
