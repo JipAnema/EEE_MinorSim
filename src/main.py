@@ -16,11 +16,11 @@ import csv
 # ================================================================================== #
 ' Simulation settings  '
 
-timesteps = aux.timeToSecond(16,0,0,0)    # Time to simulate (day,hour,minute,second)
-offsetTime = aux.timeToSecond(90,0,0,0)    # Offset time in seconds for power profiles (day,hour,minute,second)
-offsetTimeProd = aux.timeToSecond(0,-28,0,0)# Offset fermentation proces relative to offsetTime (day,hour,minute,second)
+timesteps = aux.timeToSecond(3,0,0,0)    # Time to simulate (day,hour,minute,second)
+offsetTime = aux.timeToSecond(0,0,0,0)    # Offset time in seconds for power profiles (day,hour,minute,second)
+offsetTimeProd = aux.timeToSecond(0,0,0,0)# Offset fermentation proces relative to offsetTime (day,hour,minute,second)
 transformerRating = 2000                  # kVA rating of transformer
-pvFactor = [0,0],[1200,2823.529]          # Linear factor to convert j/m2 to kW for PV system
+pvFactor = [0,0],[1200,2823.529]          # Linear factor to convert j/m2 to kW for PV system based on project owner determined profile
 windFactor =  [0, 0],[3, 0],[3.5, 36],\
   [4, 76],[4.5, 134],[5, 192],[5.5, 269],\
   [6, 346],[6.5, 465],[7, 584],[7.5, 737],\
@@ -28,7 +28,7 @@ windFactor =  [0, 0],[3, 0],[3.5, 36],\
   [10, 1722],[10.5, 1942],[11, 2162],[11.5, 2352],\
   [12, 2542],[12.5, 2701],[13, 2860],[13.5, 2930],\
   [14, 2970],[14.5, 2983],[15, 2995],[15.5, 3000],\
-  [25, 3000],[25.5, 0],[35, 0]          # 2D list to convert m/s to kW for Wind system
+  [25, 3000],[25.5, 0],[35, 0]          # 2D list to convert m/s to kW for Wind system based on Vestas V112 3MW turbine
 pvCO2factor = 13.2                      # g CO2 per kWh for PV production
 windCO2factor = 10.93                   # g CO2 per kWh for Wind production
 greyCO2factor = 445.25                  # g CO2 per kWh for grey energy consumption
@@ -93,6 +93,7 @@ for t in range(timesteps):
   # Cost calculation
   costCalculator.PowerUsage(facilityPower)
   powerUsage['CurrentPcost'].append(costCalculator.getPowerCost(facilityPower) / 3600)
+  powerUsage['CurrectAbsolutePowerCost'].append(costCalculator.getCurrentPrice())
   powerUsage['time'].append(secondsPassed)
 
   # Other power users on same bus
@@ -146,11 +147,11 @@ csvPath = 'CSV profiles\SimulationOutput.csv'
 
 if writeCSV:
   # Compact all the data (and structure to colums) powerUsage['Ferm1'],
-  data = zip(powerUsage['time'],powerUsage['CurrentPcost'],powerUsage['Power1'], powerUsage['TotalTrafoLoad'],powerUsage['PVProduction'],powerUsage['WindProduction'],powerUsage['FacilityGreenCO2'], powerUsage['FacilityGreyCO2'], powerUsage['totalCO2Production'], powerUsage['FacilityGreenCO2Percentage'])
+  data = zip(powerUsage['time'],powerUsage['CurrentPcost'],powerUsage['Power1'], powerUsage['TotalTrafoLoad'],powerUsage['PVProduction'],powerUsage['WindProduction'],powerUsage['FacilityGreenCO2'], powerUsage['FacilityGreyCO2'], powerUsage['totalCO2Production'], powerUsage['FacilityGreenCO2Percentage'], powerUsage['CurrectAbsolutePowerCost'])
 
   # Write data to csv
   with open(csvPath,'w', newline= '') as simcsv:
-    fieldnames = ['time','Current Power Cost (euro)','Power sim 1(kW)', 'Total Transformer Load(kW)', 'PV Production(kW)', 'Wind Production(kW)', 'Facility Green CO2(g CO2)', 'Facility Grey CO2(g CO2)', 'Facility Cumulative CO2(kg CO2)', 'Facility Green CO2 percentage (Current % green CO2 of total CO2)']
+    fieldnames = ['time','Current Power Cost (euro)','Power sim 1(kW)', 'Total Transformer Load(kW)', 'PV Production(kW)', 'Wind Production(kW)', 'Facility Green CO2(g CO2)', 'Facility Grey CO2(g CO2)', 'Facility Cumulative CO2(kg CO2)', 'Facility Green CO2 percentage (Current % green CO2 of total CO2)', 'Current Absolute Power Cost']
     writer = csv.writer(simcsv,delimiter=';') 
     writer.writerow(fieldnames)
     writer.writerows(data)
